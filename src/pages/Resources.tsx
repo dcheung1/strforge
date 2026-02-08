@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -17,7 +18,9 @@ import {
   Building2,
   Calculator,
   Users,
-  Home
+  Home,
+  Sparkles,
+  ArrowRight
 } from "lucide-react";
 
 const CORRECT_PASSWORD = "Empirebuilder1!";
@@ -25,9 +28,10 @@ const CORRECT_PASSWORD = "Empirebuilder1!";
 interface Resource {
   title: string;
   description: string;
-  type: "document" | "video" | "guide" | "template";
+  type: "document" | "video" | "guide" | "template" | "tool";
   category: string;
   url?: string;
+  isInteractive?: boolean;
 }
 
 const resources: Resource[] = [
@@ -45,6 +49,14 @@ const resources: Resource[] = [
     category: "Getting Started",
   },
   // Business Foundation
+  {
+    title: "Website Builder",
+    description: "Interactive prompt generator for building your corporate housing website with Lovable.",
+    type: "tool",
+    category: "Business Foundation",
+    url: "/resources/website-builder",
+    isInteractive: true,
+  },
   {
     title: "Entity Formation Guide",
     description: "How to structure your corporate housing business entity.",
@@ -135,6 +147,7 @@ const typeIcons: Record<string, React.ReactNode> = {
   video: <Video className="w-4 h-4" />,
   guide: <BookOpen className="w-4 h-4" />,
   template: <Download className="w-4 h-4" />,
+  tool: <Sparkles className="w-4 h-4" />,
 };
 
 const typeLabels: Record<string, string> = {
@@ -142,6 +155,7 @@ const typeLabels: Record<string, string> = {
   video: "Video",
   guide: "Guide",
   template: "Template",
+  tool: "Interactive Tool",
 };
 
 const Resources = () => {
@@ -260,11 +274,8 @@ const Resources = () => {
                 <div className="grid md:grid-cols-2 gap-4">
                   {resources
                     .filter(r => r.category === category)
-                    .map((resource, index) => (
-                      <div
-                        key={index}
-                        className="card-elevated p-5 hover:border-primary/30 transition-colors group cursor-pointer"
-                      >
+                    .map((resource, index) => {
+                      const CardContent = (
                         <div className="flex items-start justify-between gap-4">
                           <div className="flex-1">
                             <div className="flex items-center gap-2 mb-2">
@@ -274,6 +285,11 @@ const Resources = () => {
                               <span className="text-xs text-muted-foreground uppercase tracking-wide">
                                 {typeLabels[resource.type]}
                               </span>
+                              {resource.isInteractive && (
+                                <span className="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded">
+                                  NEW
+                                </span>
+                              )}
                             </div>
                             <h3 className="font-medium text-foreground mb-1 group-hover:text-primary transition-colors">
                               {resource.title}
@@ -282,10 +298,37 @@ const Resources = () => {
                               {resource.description}
                             </p>
                           </div>
-                          <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors shrink-0 mt-1" />
+                          {resource.isInteractive ? (
+                            <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform shrink-0 mt-1" />
+                          ) : (
+                            <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors shrink-0 mt-1" />
+                          )}
                         </div>
-                      </div>
-                    ))}
+                      );
+
+                      if (resource.isInteractive && resource.url) {
+                        return (
+                          <Link
+                            key={index}
+                            to={resource.url}
+                            className={`card-elevated p-5 hover:border-primary/30 transition-colors group cursor-pointer block ${
+                              resource.isInteractive ? "border-primary/20 bg-primary/5" : ""
+                            }`}
+                          >
+                            {CardContent}
+                          </Link>
+                        );
+                      }
+
+                      return (
+                        <div
+                          key={index}
+                          className="card-elevated p-5 hover:border-primary/30 transition-colors group cursor-pointer"
+                        >
+                          {CardContent}
+                        </div>
+                      );
+                    })}
                 </div>
               </motion.div>
             ))}
