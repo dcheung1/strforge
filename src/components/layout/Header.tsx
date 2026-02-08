@@ -38,6 +38,16 @@ const Header = () => {
             >
               Program
             </Link>
+            <Link 
+              to="/resources" 
+              className={`text-sm font-medium transition-colors duration-200 ${
+                location.pathname === "/resources" 
+                  ? "text-foreground" 
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Resources
+            </Link>
           </nav>
           
           <Link to="/apply">
