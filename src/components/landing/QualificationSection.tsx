@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
 
 const forYou = [
-  "U.S. citizens",
+  "U.S. citizens or permit holders",
   "Busy professionals with $100k+ capital or credit capacity",
   "700+ personal credit score",
   "First-time corporate housing operators",
