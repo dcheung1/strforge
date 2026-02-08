@@ -11,7 +11,7 @@ const Footer = () => {
             <img 
               src={logo} 
               alt="STR Forge" 
-              className="h-16 md:h-20 lg:h-24 w-auto opacity-90 hover:opacity-100 transition-opacity"
+              className="h-28 md:h-36 lg:h-40 w-auto opacity-90 hover:opacity-100 transition-opacity"
             />
           </Link>
           
