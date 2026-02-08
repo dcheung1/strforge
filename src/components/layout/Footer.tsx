@@ -11,12 +11,12 @@ const Footer = () => {
             <img 
               src={logo} 
               alt="STR Forge" 
-              className="h-10 w-auto opacity-80 hover:opacity-100 transition-opacity"
+              className="h-14 md:h-16 w-auto opacity-80 hover:opacity-100 transition-opacity"
             />
           </Link>
           
           {/* Navigation Links - Stack on mobile, row on desktop */}
-          <nav className="w-full max-w-sm sm:max-w-none flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-6 md:gap-8">
+          <nav className="w-full max-w-sm sm:max-w-none flex flex-col sm:flex-row items-stretch sm:items-center sm:justify-center gap-3 sm:gap-6 md:gap-8">
             <Link 
               to="/" 
               className="text-sm text-muted-foreground hover:text-foreground transition-colors text-center sm:text-left py-2 sm:py-0"
