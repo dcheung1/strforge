@@ -15,31 +15,34 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import {
-  Lock,
   Sparkles,
   Copy,
   Check,
   ChevronRight,
-  Upload,
   Palette,
   Building2,
   Phone,
   MapPin,
   Users,
   FileText,
+  RefreshCw,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-const CORRECT_PASSWORD = "Empirebuilder1!";
-
-// Color presets
-const colorPresets = [
-  { name: "Gold & Black", primary: "45 80% 55%", background: "25 33% 5%" },
-  { name: "Navy & Gold", primary: "45 75% 60%", background: "220 30% 12%" },
-  { name: "Emerald", primary: "160 60% 45%", background: "40 20% 8%" },
-  { name: "Bronze & Charcoal", primary: "30 50% 50%", background: "0 0% 10%" },
-  { name: "Rose Gold", primary: "10 60% 65%", background: "350 15% 8%" },
-  { name: "Silver & Slate", primary: "220 15% 70%", background: "220 20% 10%" },
+// All available color schemes - curated for corporate housing
+const allColorSchemes = [
+  // Premium & Luxury
+  { name: "Gold & Onyx", primary: "45 80% 55%", background: "25 33% 5%", description: "Classic luxury" },
+  { name: "Champagne & Charcoal", primary: "38 45% 65%", background: "0 0% 8%", description: "Understated elegance" },
+  { name: "Copper & Midnight", primary: "25 70% 50%", background: "220 25% 8%", description: "Warm & sophisticated" },
+  // Cool & Professional
+  { name: "Navy & Cream", primary: "45 40% 75%", background: "220 35% 12%", description: "Corporate trust" },
+  { name: "Slate & Silver", primary: "210 20% 70%", background: "215 25% 10%", description: "Modern professional" },
+  { name: "Steel Blue & Pearl", primary: "200 30% 60%", background: "210 20% 8%", description: "Clean & confident" },
+  // Warm & Inviting
+  { name: "Terracotta & Espresso", primary: "15 55% 55%", background: "20 30% 8%", description: "Earthy warmth" },
+  { name: "Sage & Walnut", primary: "140 25% 50%", background: "30 20% 8%", description: "Natural calm" },
+  { name: "Burgundy & Mahogany", primary: "350 50% 40%", background: "350 25% 8%", description: "Rich & refined" },
 ];
 
 // Business name suggestions
@@ -117,11 +120,12 @@ interface FormData {
 
 const WebsiteBuilder = () => {
   const { toast } = useToast();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
+  const [displayedColorSchemes, setDisplayedColorSchemes] = useState(() => {
+    // Start with first 3 schemes
+    return allColorSchemes.slice(0, 3);
+  });
   
   const [formData, setFormData] = useState<FormData>({
     templateType: "lead-gen",
@@ -149,21 +153,18 @@ const WebsiteBuilder = () => {
     heroImages: [],
   });
 
-  const handlePasswordSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (password === CORRECT_PASSWORD) {
-      setIsAuthenticated(true);
-      setError("");
-    } else {
-      setError("Incorrect password. Please try again.");
-    }
-  };
-
   const updateField = (field: keyof FormData, value: string | File | File[] | null) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const generateSuggestion = (type: "name" | "tagline" | "philosophy" | "color") => {
+  const generateNewColorSchemes = () => {
+    // Shuffle and pick 3 different schemes
+    const shuffled = [...allColorSchemes].sort(() => Math.random() - 0.5);
+    setDisplayedColorSchemes(shuffled.slice(0, 3));
+    toast({ title: "New color schemes generated" });
+  };
+
+  const generateSuggestion = (type: "name" | "tagline" | "philosophy") => {
     if (type === "name") {
       const suggestion = businessNameSuggestions[Math.floor(Math.random() * businessNameSuggestions.length)];
       updateField("businessName", suggestion);
@@ -173,11 +174,6 @@ const WebsiteBuilder = () => {
     } else if (type === "philosophy") {
       const suggestion = philosophySuggestions[Math.floor(Math.random() * philosophySuggestions.length)];
       updateField("philosophyWord", suggestion);
-    } else if (type === "color") {
-      const preset = colorPresets[Math.floor(Math.random() * colorPresets.length)];
-      updateField("primaryColor", preset.primary);
-      updateField("backgroundDark", preset.background);
-      toast({ title: `Applied "${preset.name}" color scheme` });
     }
   };
 
@@ -514,60 +510,6 @@ Submit button with toast notification
     { title: "Details", icon: Users },
     { title: "Colors", icon: Palette },
   ];
-
-  // Password gate
-  if (!isAuthenticated) {
-    return (
-      <div className="min-h-screen bg-background">
-        <Header />
-        <main className="pt-32 pb-20">
-          <div className="section-container">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="max-w-md mx-auto text-center"
-            >
-              <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-6">
-                <Lock className="w-8 h-8 text-primary" />
-              </div>
-              
-              <h1 className="text-3xl font-semibold text-foreground mb-4">
-                Website Builder
-              </h1>
-              
-              <p className="text-text-secondary mb-8">
-                This tool is restricted to STR Forge clients. 
-                Enter your access password to continue.
-              </p>
-              
-              <form onSubmit={handlePasswordSubmit} className="space-y-4">
-                <div className="space-y-2 text-left">
-                  <Label htmlFor="password">Password</Label>
-                  <Input
-                    id="password"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Enter access password"
-                    className="text-center"
-                  />
-                  {error && (
-                    <p className="text-sm text-destructive">{error}</p>
-                  )}
-                </div>
-                
-                <Button type="submit" variant="cta" className="w-full">
-                  Access Website Builder
-                </Button>
-              </form>
-            </motion.div>
-          </div>
-        </main>
-        <Footer />
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -993,39 +935,45 @@ Submit button with toast notification
                     <Button
                       type="button"
                       variant="outline"
-                      onClick={() => generateSuggestion("color")}
+                      onClick={generateNewColorSchemes}
                       className="border-primary text-primary hover:bg-primary/10"
                     >
-                      <Sparkles className="w-4 h-4 mr-2" />
-                      Random Color Scheme
+                      <RefreshCw className="w-4 h-4 mr-2" />
+                      Generate Color Schemes
                     </Button>
                   </div>
                   
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {colorPresets.map((preset) => (
+                  <div className="grid gap-4">
+                    {displayedColorSchemes.map((scheme) => (
                       <button
-                        key={preset.name}
+                        key={scheme.name}
                         onClick={() => {
-                          updateField("primaryColor", preset.primary);
-                          updateField("backgroundDark", preset.background);
+                          updateField("primaryColor", scheme.primary);
+                          updateField("backgroundDark", scheme.background);
+                          toast({ title: `Applied "${scheme.name}" color scheme` });
                         }}
-                        className={`p-4 rounded-lg border-2 text-left transition-all ${
-                          formData.primaryColor === preset.primary
-                            ? "border-primary"
+                        className={`p-5 rounded-lg border-2 text-left transition-all ${
+                          formData.primaryColor === scheme.primary
+                            ? "border-primary bg-primary/5"
                             : "border-border hover:border-primary/50"
                         }`}
                       >
-                        <div className="flex items-center gap-3 mb-2">
-                          <div
-                            className="w-8 h-8 rounded-full"
-                            style={{ backgroundColor: `hsl(${preset.primary})` }}
-                          />
-                          <div
-                            className="w-8 h-8 rounded-full border border-border"
-                            style={{ backgroundColor: `hsl(${preset.background})` }}
-                          />
+                        <div className="flex items-center gap-4">
+                          <div className="flex items-center gap-2">
+                            <div
+                              className="w-10 h-10 rounded-full shadow-lg"
+                              style={{ backgroundColor: `hsl(${scheme.primary})` }}
+                            />
+                            <div
+                              className="w-10 h-10 rounded-full border border-border"
+                              style={{ backgroundColor: `hsl(${scheme.background})` }}
+                            />
+                          </div>
+                          <div>
+                            <span className="font-semibold text-foreground block">{scheme.name}</span>
+                            <span className="text-sm text-muted-foreground">{scheme.description}</span>
+                          </div>
                         </div>
-                        <span className="font-medium text-foreground">{preset.name}</span>
                       </button>
                     ))}
                   </div>
