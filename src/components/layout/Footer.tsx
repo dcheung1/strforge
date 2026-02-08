@@ -16,30 +16,30 @@ const Footer = () => {
           </Link>
           
           {/* Navigation Links - Stack on mobile, row on desktop */}
-          <nav className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 md:gap-8">
+          <nav className="w-full max-w-sm sm:max-w-none flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-6 md:gap-8">
             <Link 
               to="/" 
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors text-center sm:text-left py-2 sm:py-0"
             >
               Overview
             </Link>
             <Link 
               to="/program" 
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors text-center sm:text-left py-2 sm:py-0"
             >
               Program
             </Link>
             <Link 
               to="/apply" 
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors text-center sm:text-left py-2 sm:py-0"
             >
               Apply
             </Link>
             <Link 
               to="/resources" 
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5"
+              className="text-sm font-medium text-foreground sm:font-normal sm:text-muted-foreground hover:text-foreground transition-colors flex items-center justify-center sm:justify-start gap-2 rounded-md border border-border bg-secondary/40 px-3 py-2 sm:bg-transparent sm:border-0 sm:px-0 sm:py-0"
             >
-              <Lock className="w-3 h-3" />
+              <Lock className="w-3.5 h-3.5" />
               Client Resources
             </Link>
           </nav>
