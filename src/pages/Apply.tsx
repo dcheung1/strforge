@@ -200,7 +200,7 @@ const Apply = () => {
                 <div className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label>Are you a U.S. citizen? *</Label>
+                      <Label>Are you a U.S. citizen or permit holder? *</Label>
                       <Select
                         value={formData.usCitizen}
                         onValueChange={(value) => handleInputChange("usCitizen", value)}
@@ -209,7 +209,8 @@ const Apply = () => {
                           <SelectValue placeholder="Select" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="yes">Yes</SelectItem>
+                          <SelectItem value="citizen">Yes, U.S. citizen</SelectItem>
+                          <SelectItem value="permit">Yes, permit holder</SelectItem>
                           <SelectItem value="no">No</SelectItem>
                         </SelectContent>
                       </Select>
