@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="border-t border-border bg-background">
       <div className="section-container py-12 md:py-16">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="flex flex-col items-center gap-8">
           <Link to="/" className="flex items-center gap-3">
             <img 
               src={logo} 
@@ -15,8 +15,8 @@ const Footer = () => {
             />
           </Link>
           
-          {/* Navigation Links */}
-          <nav className="flex flex-wrap items-center justify-center gap-6 md:gap-8">
+          {/* Navigation Links - Stack on mobile, row on desktop */}
+          <nav className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 md:gap-8">
             <Link 
               to="/" 
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
@@ -47,7 +47,7 @@ const Footer = () => {
         
         <div className="divider my-8" />
         
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground text-center md:text-left">
+        <div className="flex flex-col items-center gap-4 text-sm text-muted-foreground text-center">
           <p>© {new Date().getFullYear()} STR Forge. All rights reserved.</p>
           <p className="text-xs md:text-sm">A fixed-scope build → launch → handoff engagement.</p>
         </div>
