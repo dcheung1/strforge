@@ -11,7 +11,8 @@ const Header = () => {
   
   const navLinks = [
     { to: "/", label: "Overview" },
-    { to: "/program", label: "Program" },
+    { to: "/program", label: "DFY Program" },
+    { to: "/mentorship", label: "Mentorship" },
   ];
   
   return (

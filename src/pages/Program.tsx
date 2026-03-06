@@ -198,6 +198,13 @@ const Program = () => {
                 
                 <p className="text-sm text-muted-foreground mt-8 pt-6 border-t border-border">
                   STR Forge does not own property, manage long-term, or hold client funds.
+                  <br />
+                  <span className="mt-2 inline-block">
+                    Looking for a more affordable option?{" "}
+                    <Link to="/mentorship" className="text-primary hover:underline font-medium">
+                      See our Mentorship Cohort →
+                    </Link>
+                  </span>
                 </p>
               </div>
             </motion.div>
