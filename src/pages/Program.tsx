@@ -103,17 +103,16 @@ const Program = () => {
               >
                 <div>
                   <p className="text-sm text-primary font-medium tracking-wide uppercase mb-4">
-                    Full Program Details
+                    Done-For-You Program
                   </p>
                   <h1 className="text-foreground leading-tight mb-6">
-                    This is not an Airbnb program.{" "}
-                    <span className="text-muted-foreground">It's a business build.</span>
+                    We build it.{" "}
+                    <span className="text-muted-foreground">You own it.</span>
                   </h1>
                   
                   <p className="text-lg text-text-secondary leading-relaxed">
-                    STR Forge creates a private, cash-flowing operating business in 
-                    corporate housing — independent of public markets, employers, 
-                    and property ownership.
+                    STR Forge builds a private, cash-flowing corporate housing business 
+                    for you — fully executed, then handed off for you to own and operate.
                   </p>
                 </div>
                 
@@ -199,6 +198,13 @@ const Program = () => {
                 
                 <p className="text-sm text-muted-foreground mt-8 pt-6 border-t border-border">
                   STR Forge does not own property, manage long-term, or hold client funds.
+                  <br />
+                  <span className="mt-2 inline-block">
+                    Looking for a more affordable option?{" "}
+                    <Link to="/mentorship" className="text-primary hover:underline font-medium">
+                      See our Mentorship Cohort →
+                    </Link>
+                  </span>
                 </p>
               </div>
             </motion.div>
