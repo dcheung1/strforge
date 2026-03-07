@@ -24,7 +24,7 @@ import {
   ArrowRight
 } from "lucide-react";
 
-const CORRECT_PASSWORD = "Empirebuilder1!";
+
 
 interface Resource {
   title: string;
