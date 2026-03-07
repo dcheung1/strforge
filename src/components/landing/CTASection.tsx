@@ -10,7 +10,7 @@ const CTASection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
           className="max-w-2xl mx-auto text-center"
         >
@@ -18,20 +18,20 @@ const CTASection = () => {
             Ready to build?
           </h2>
           
-          <p className="text-lg text-text-secondary mb-10">
+          <p className="text-base md:text-lg text-text-secondary mb-8 md:mb-10">
             If you meet the qualifications and are ready to own a properly 
             built corporate housing business, apply to work with STR Forge.
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link to="/apply">
-              <Button variant="cta" size="xl" className="group">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
+            <Link to="/apply" className="w-full sm:w-auto">
+              <Button variant="cta" size="xl" className="w-full sm:w-auto">
                 Apply to Work With STR Forge
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4" />
               </Button>
             </Link>
-            <Link to="/program">
-              <Button variant="ctaOutline" size="lg">
+            <Link to="/program" className="w-full sm:w-auto">
+              <Button variant="ctaOutline" size="lg" className="w-full sm:w-auto">
                 View Full Program Details
               </Button>
             </Link>

@@ -35,6 +35,15 @@ const steps = [
   },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: i * 0.12, ease: "easeOut" as const },
+  }),
+};
+
 const HowItWorksSection = () => {
   return (
     <section className="section-spacing bg-secondary/30">
@@ -42,26 +51,27 @@ const HowItWorksSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-12 md:mb-16"
         >
           <div className="accent-line mb-6" />
           <h2 className="text-foreground">How It Works</h2>
         </motion.div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {steps.map((step, index) => (
             <motion.div
               key={step.number}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="card-elevated p-6 md:p-8 group hover:border-primary/30 transition-colors duration-300"
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-40px" }}
+              variants={cardVariants}
+              className="card-elevated p-5 md:p-8 border-primary/20"
             >
               <div className="flex items-start gap-4 mb-4">
-                <div className="step-number group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                <div className="step-number bg-primary text-primary-foreground border-primary">
                   {step.number}
                 </div>
                 <step.icon className="w-5 h-5 text-muted-foreground mt-2.5" />
@@ -86,7 +96,7 @@ const HowItWorksSection = () => {
           className="text-sm text-muted-foreground mt-10 text-center"
         >
           Detailed scope and timeline available on the{" "}
-          <Link to="/program" className="text-foreground hover:text-primary underline underline-offset-4 transition-colors">
+          <Link to="/program" className="text-foreground underline underline-offset-4">
             program page
           </Link>.
         </motion.p>
