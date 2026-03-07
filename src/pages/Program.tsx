@@ -74,7 +74,7 @@ const timeline = [
 
 const testimonials = [
   {
-    quote: "The level of structure and clarity was exactly what I needed. I was operational within two months without the trial-and-error most operators go through.",
+    quote: "The level of structure and clarity was exactly what I needed. I was up and running within two months without the trial-and-error most operators go through.",
     author: "Software Engineering Director",
     context: "5-unit portfolio, Bay Area market",
   },
