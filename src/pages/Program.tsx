@@ -18,22 +18,22 @@ import {
 
 const phases = [
   {
-    title: "Phase 1 — Business Foundation",
+    title: "Phase 1: Business Foundation",
     description: "Operating model, entity setup guidance, banking, credit strategy, and systems architecture.",
     icon: Cog,
   },
   {
-    title: "Phase 2 — Portfolio Build",
+    title: "Phase 2: Portfolio Build",
     description: "Unit sourcing, lease guidance, furnishing standards, vendor coordination, and quality control.",
     icon: Building2,
   },
   {
-    title: "Phase 3 — Operations Installation",
+    title: "Phase 3: Operations Installation",
     description: "Channel setup, pricing logic, SOPs, messaging, and escalation frameworks.",
     icon: Cog,
   },
   {
-    title: "Phase 4 — Launch & Handoff",
+    title: "Phase 4: Launch & Handoff",
     description: "Go-live support, stabilization window, documentation transfer, and ownership transition.",
     icon: Rocket,
   },
@@ -112,7 +112,7 @@ const Program = () => {
                   
                   <p className="text-lg text-text-secondary leading-relaxed">
                     STR Forge builds a private, cash-flowing corporate housing business 
-                    for you — fully executed, then handed off for you to own and operate.
+                    for you. Fully executed, then handed off for you to own and operate.
                   </p>
                 </div>
                 

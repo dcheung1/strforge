@@ -188,7 +188,7 @@ const WebsiteBuilder = () => {
     return `# Build My Corporate Housing Lead Generation Website
 
 ## Overview
-Create a professional lead generation website for **${formData.businessName || "[BUSINESS_NAME]"}**, a corporate housing company. This is a landing page to collect leads and build credibility—no booking system needed yet.
+Create a professional lead generation website for **${formData.businessName || "[BUSINESS_NAME]"}**, a corporate housing company. This is a landing page to collect leads and build credibility. No booking system needed yet.
 
 **Brand Tagline:** ${formData.tagline || "[TAGLINE]"}
 **Philosophy:** ${formData.philosophyWord || "[PHILOSOPHY_WORD]"}
@@ -255,7 +255,7 @@ Three feature cards:
 - Three benefit bullets:
   - Guaranteed occupancy with long-term leases
   - Professional property care and maintenance
-  - Hassle-free partnership—we handle everything
+  - Hassle-free partnership. We handle everything
 - CTA: "Learn More" (scrolls to contact)
 
 ### 6. Contact Section
@@ -312,7 +312,7 @@ public/assets/images/
     return `# Build My Corporate Housing Website
 
 ## Overview
-Create a premium corporate housing website for **${formData.businessName || "[BUSINESS_NAME]"}** with a dark, elegant aesthetic. The brand philosophy centers on **${formData.philosophyWord || "[PHILOSOPHY_WORD]"}**—a commitment to excellence in temporary housing.
+Create a premium corporate housing website for **${formData.businessName || "[BUSINESS_NAME]"}** with a dark, elegant aesthetic. The brand philosophy centers on **${formData.philosophyWord || "[PHILOSOPHY_WORD]"}**, a commitment to excellence in temporary housing.
 
 **Brand Tagline:** ${formData.tagline || "[TAGLINE]"}
 **Founded:** ${formData.yearFounded || "[YEAR_FOUNDED]"}
@@ -430,7 +430,7 @@ Six cards:
 
 ### LANDLORDS PAGE
 
-**Positioning:** ${formData.businessName || "[BUSINESS_NAME]"} as the ideal corporate tenant—signing ${formData.leaseTermMonths}-month leases for ${formData.propertyBedrooms} bedroom homes at market rental rates.
+**Positioning:** ${formData.businessName || "[BUSINESS_NAME]"} as the ideal corporate tenant, signing ${formData.leaseTermMonths}-month leases for ${formData.propertyBedrooms} bedroom homes at market rental rates.
 
 #### Hero
 - Headline: **"Your Ideal Corporate Tenant"**
@@ -438,7 +438,7 @@ Six cards:
 
 #### Benefits
 1. **Guaranteed Occupancy** - We sign multiple leases and renew year over year for guaranteed occupancy.
-2. **Property Care** - Your property is kept in for-sale condition—we treat it like our own.
+2. **Property Care** - Your property is kept in for-sale condition. We treat it like our own.
 3. **Light Maintenance** - We handle cleaning and light maintenance, keeping contact to emergencies only.
 
 ---
@@ -578,7 +578,7 @@ Submit button with toast notification
                     </div>
                     <h3 className="font-semibold text-foreground mb-2">Lead Generation Site</h3>
                     <p className="text-sm text-muted-foreground">
-                      Perfect for new businesses. Creates a professional landing page to collect leads—no booking system required.
+                      Perfect for new businesses. Creates a professional landing page to collect leads. No booking system required.
                     </p>
                   </button>
                   

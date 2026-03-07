@@ -26,7 +26,7 @@ const HeroSection = () => {
               
               <p className="text-lg md:text-xl text-text-secondary leading-relaxed max-w-xl">
                 STR Forge helps professionals create a cash-flowing corporate housing 
-                business — without owning property, managing day-to-day operations, 
+                business without owning property, managing day-to-day operations, 
                 or betting on appreciation.
               </p>
               

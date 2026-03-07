@@ -108,13 +108,13 @@ const Mentorship = () => {
                   <p className="text-lg text-text-secondary leading-relaxed">
                     A 6-week group coaching program that gives you the frameworks,
                     templates, and live guidance to build your first corporate housing
-                    portfolio — from your first unit to five.
+                    portfolio, from your first unit to five.
                   </p>
                 </div>
 
                 <div className="p-6 rounded-lg bg-secondary/50 border border-border">
                   <p className="text-text-secondary text-sm">
-                    You get the same system behind our Done-For-You builds —
+                    You get the same system behind our Done-For-You builds,
                     <span className="text-foreground font-medium block mt-2">
                       delivered as structured coaching, not execution.
                     </span>
