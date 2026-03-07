@@ -79,7 +79,7 @@ const testimonials = [
     context: "5-unit portfolio, Bay Area market",
   },
   {
-    quote: "STR Forge reduced my decision fatigue significantly. Every step was mapped out, executed professionally, and documented thoroughly.",
+    quote: "STR Forge cut my decision fatigue in half. Every step was mapped out, executed well, and documented clearly.",
     author: "Physician & Business Owner",
     context: "First-time operator",
   },
