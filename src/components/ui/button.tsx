@@ -16,8 +16,8 @@ const buttonVariants = cva(
         ghost: "hover:bg-secondary hover:text-foreground",
         link: "text-foreground underline-offset-4 hover:underline",
         // STR Forge custom variants
-        cta: "bg-primary text-primary-foreground hover:bg-primary-hover border border-primary/50 shadow-lg hover:shadow-xl transition-all duration-300",
-        ctaOutline: "border border-muted-foreground/40 bg-transparent text-foreground hover:border-primary hover:text-primary transition-all duration-300",
+        cta: "bg-primary text-primary-foreground border border-primary/50 shadow-lg active:bg-primary-hover md:hover:bg-primary-hover transition-all duration-300",
+        ctaOutline: "border border-muted-foreground/40 bg-transparent text-foreground active:border-primary active:text-primary md:hover:border-primary md:hover:text-primary transition-all duration-300",
       },
       size: {
         default: "h-10 px-4 py-2",

@@ -26,27 +26,27 @@ const TestimonialsSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="mb-12"
+          className="mb-10 md:mb-12"
         >
           <div className="accent-line mb-6" />
           <h2 className="text-foreground">Client Outcomes</h2>
         </motion.div>
         
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="card-elevated p-6 md:p-8 relative"
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: index * 0.12 }}
+              className="card-elevated p-5 md:p-8 relative"
             >
-              <Quote className="w-8 h-8 text-primary/30 absolute top-6 right-6" />
+              <Quote className="w-8 h-8 text-primary/30 absolute top-5 right-5 md:top-6 md:right-6" />
               
-              <blockquote className="text-text-secondary leading-relaxed mb-6">
+              <blockquote className="text-text-secondary leading-relaxed mb-6 text-sm md:text-base">
                 "{testimonial.quote}"
               </blockquote>
               

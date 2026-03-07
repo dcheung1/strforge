@@ -28,12 +28,12 @@ const WhyThisModelSection = () => {
   return (
     <section className="section-spacing">
       <div className="section-container">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left: Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
             className="space-y-8"
           >
@@ -44,9 +44,7 @@ const WhyThisModelSection = () => {
               </h2>
               
               <div className="space-y-4 text-text-secondary">
-                <p>
-                  Public markets are volatile and uncontrollable.
-                </p>
+                <p>Public markets are volatile and uncontrollable.</p>
                 <p>
                   Traditional real estate ties up capital in long-term debt, 
                   maintenance risk, and appreciation assumptions.
@@ -54,7 +52,7 @@ const WhyThisModelSection = () => {
               </div>
             </div>
             
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
               {benefits.map((benefit, index) => (
                 <motion.div
                   key={benefit.title}
@@ -82,12 +80,12 @@ const WhyThisModelSection = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="video-placeholder group cursor-pointer">
+            <div className="video-placeholder cursor-pointer">
               <div className="flex flex-col items-center gap-4 text-muted-foreground">
-                <div className="w-16 h-16 rounded-full border-2 border-muted-foreground/30 flex items-center justify-center group-hover:border-primary group-hover:text-primary transition-colors duration-300">
+                <div className="w-16 h-16 rounded-full border-2 border-muted-foreground/30 flex items-center justify-center">
                   <Play className="w-6 h-6 ml-1" />
                 </div>
                 <span className="text-sm font-medium">Learn More</span>
