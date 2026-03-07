@@ -18,7 +18,7 @@ import {
 
 const phases = [
   {
-    title: "Phase 1 — Business Foundation",
+    title: "Phase 1: Business Foundation",
     description: "Operating model, entity setup guidance, banking, credit strategy, and systems architecture.",
     icon: Cog,
   },
