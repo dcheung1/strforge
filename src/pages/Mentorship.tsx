@@ -74,7 +74,7 @@ const testimonials = [
     context: "First-time operator, secured 2 units",
   },
   {
-    quote: "I had been watching YouTube videos for months. This program cut through the noise and gave me an actual system to follow step by step.",
+    quote: "I had been watching YouTube videos for months. This program cut through the noise and gave me a real system to follow, week by week.",
     author: "Financial Analyst",
     context: "Built 3-unit portfolio",
   },
