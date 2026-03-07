@@ -74,12 +74,12 @@ const timeline = [
 
 const testimonials = [
   {
-    quote: "The level of structure and clarity was exactly what I needed. I was operational within two months without the trial-and-error most operators go through.",
+    quote: "The level of structure and clarity was exactly what I needed. I was up and running within two months without the trial-and-error most operators go through.",
     author: "Software Engineering Director",
     context: "5-unit portfolio, Bay Area market",
   },
   {
-    quote: "STR Forge reduced my decision fatigue significantly. Every step was mapped out, executed professionally, and documented thoroughly.",
+    quote: "STR Forge cut my decision fatigue in half. Every step was mapped out, executed well, and documented clearly.",
     author: "Physician & Business Owner",
     context: "First-time operator",
   },
@@ -383,7 +383,7 @@ const Program = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="flex items-start gap-6 p-6 rounded-lg border border-border/50 bg-card/50 hover:border-primary/30 transition-colors"
+                  className="flex items-start gap-6 p-6 rounded-lg border border-border/50 bg-card/50"
                 >
                   <div className="flex items-center gap-3 min-w-[120px]">
                     <Clock className="w-4 h-4 text-primary" />

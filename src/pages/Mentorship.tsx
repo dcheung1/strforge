@@ -69,12 +69,12 @@ const excluded = [
 
 const testimonials = [
   {
-    quote: "The cohort gave me the confidence and framework to land my first unit within 3 weeks. Having a group going through the same process was invaluable.",
+    quote: "The cohort gave me the confidence and framework to land my first unit within 3 weeks. Having a group going through the same process made all the difference.",
     author: "Marketing Manager",
     context: "First-time operator, secured 2 units",
   },
   {
-    quote: "I had been watching YouTube videos for months. This program cut through the noise and gave me an actual system to follow step by step.",
+    quote: "I had been watching YouTube videos for months. This program cut through the noise and gave me a real system to follow, week by week.",
     author: "Financial Analyst",
     context: "Built 3-unit portfolio",
   },
@@ -199,7 +199,7 @@ const Mentorship = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.4, delay: index * 0.08 }}
-                  className="flex items-start gap-6 p-6 rounded-lg border border-border/50 bg-card/50 hover:border-primary/30 transition-colors"
+                  className="flex items-start gap-6 p-6 rounded-lg border border-border/50 bg-card/50"
                 >
                   <div className="step-number shrink-0">{String(index + 1).padStart(2, "0")}</div>
                   <div>
