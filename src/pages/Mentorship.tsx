@@ -114,7 +114,7 @@ const Mentorship = () => {
 
                 <div className="p-6 rounded-lg bg-secondary/50 border border-border">
                   <p className="text-text-secondary text-sm">
-                    You get the same system behind our Done-For-You builds —
+                    You get the same system behind our Done-For-You builds,
                     <span className="text-foreground font-medium block mt-2">
                       delivered as structured coaching, not execution.
                     </span>

@@ -74,7 +74,7 @@ const WhyThisModelSection = () => {
             </div>
             
             <p className="text-sm text-muted-foreground italic">
-              This is a private operating asset — not a speculative investment.
+              This is a private operating asset, not a speculative investment.
             </p>
           </motion.div>
           

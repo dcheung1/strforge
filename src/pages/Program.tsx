@@ -112,7 +112,7 @@ const Program = () => {
                   
                   <p className="text-lg text-text-secondary leading-relaxed">
                     STR Forge builds a private, cash-flowing corporate housing business 
-                    for you — fully executed, then handed off for you to own and operate.
+                    for you. Fully executed, then handed off for you to own and operate.
                   </p>
                 </div>
                 

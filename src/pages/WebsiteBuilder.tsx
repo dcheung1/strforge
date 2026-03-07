@@ -578,7 +578,7 @@ Submit button with toast notification
                     </div>
                     <h3 className="font-semibold text-foreground mb-2">Lead Generation Site</h3>
                     <p className="text-sm text-muted-foreground">
-                      Perfect for new businesses. Creates a professional landing page to collect leads—no booking system required.
+                      Perfect for new businesses. Creates a professional landing page to collect leads. No booking system required.
                     </p>
                   </button>
                   
