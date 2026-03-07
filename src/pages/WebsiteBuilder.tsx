@@ -188,7 +188,7 @@ const WebsiteBuilder = () => {
     return `# Build My Corporate Housing Lead Generation Website
 
 ## Overview
-Create a professional lead generation website for **${formData.businessName || "[BUSINESS_NAME]"}**, a corporate housing company. This is a landing page to collect leads and build credibility—no booking system needed yet.
+Create a professional lead generation website for **${formData.businessName || "[BUSINESS_NAME]"}**, a corporate housing company. This is a landing page to collect leads and build credibility. No booking system needed yet.
 
 **Brand Tagline:** ${formData.tagline || "[TAGLINE]"}
 **Philosophy:** ${formData.philosophyWord || "[PHILOSOPHY_WORD]"}
