@@ -312,7 +312,7 @@ public/assets/images/
     return `# Build My Corporate Housing Website
 
 ## Overview
-Create a premium corporate housing website for **${formData.businessName || "[BUSINESS_NAME]"}** with a dark, elegant aesthetic. The brand philosophy centers on **${formData.philosophyWord || "[PHILOSOPHY_WORD]"}**—a commitment to excellence in temporary housing.
+Create a premium corporate housing website for **${formData.businessName || "[BUSINESS_NAME]"}** with a dark, elegant aesthetic. The brand philosophy centers on **${formData.philosophyWord || "[PHILOSOPHY_WORD]"}**, a commitment to excellence in temporary housing.
 
 **Brand Tagline:** ${formData.tagline || "[TAGLINE]"}
 **Founded:** ${formData.yearFounded || "[YEAR_FOUNDED]"}
