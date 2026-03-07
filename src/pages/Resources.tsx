@@ -235,8 +235,8 @@ const Resources = () => {
                   )}
                 </div>
                 
-                <Button type="submit" variant="cta" className="w-full">
-                  Access Resources
+                <Button type="submit" variant="cta" className="w-full" disabled={isLoading}>
+                  {isLoading ? "Verifying..." : "Access Resources"}
                 </Button>
               </form>
             </motion.div>
