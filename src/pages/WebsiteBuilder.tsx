@@ -430,7 +430,7 @@ Six cards:
 
 ### LANDLORDS PAGE
 
-**Positioning:** ${formData.businessName || "[BUSINESS_NAME]"} as the ideal corporate tenant—signing ${formData.leaseTermMonths}-month leases for ${formData.propertyBedrooms} bedroom homes at market rental rates.
+**Positioning:** ${formData.businessName || "[BUSINESS_NAME]"} as the ideal corporate tenant, signing ${formData.leaseTermMonths}-month leases for ${formData.propertyBedrooms} bedroom homes at market rental rates.
 
 #### Hero
 - Headline: **"Your Ideal Corporate Tenant"**
