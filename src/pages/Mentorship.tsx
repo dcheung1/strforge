@@ -69,7 +69,7 @@ const excluded = [
 
 const testimonials = [
   {
-    quote: "The cohort gave me the confidence and framework to land my first unit within 3 weeks. Having a group going through the same process was invaluable.",
+    quote: "The cohort gave me the confidence and framework to land my first unit within 3 weeks. Having a group going through the same process made all the difference.",
     author: "Marketing Manager",
     context: "First-time operator, secured 2 units",
   },
