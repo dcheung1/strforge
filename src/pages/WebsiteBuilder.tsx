@@ -438,7 +438,7 @@ Six cards:
 
 #### Benefits
 1. **Guaranteed Occupancy** - We sign multiple leases and renew year over year for guaranteed occupancy.
-2. **Property Care** - Your property is kept in for-sale condition—we treat it like our own.
+2. **Property Care** - Your property is kept in for-sale condition. We treat it like our own.
 3. **Light Maintenance** - We handle cleaning and light maintenance, keeping contact to emergencies only.
 
 ---
