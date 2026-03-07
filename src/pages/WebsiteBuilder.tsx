@@ -255,7 +255,7 @@ Three feature cards:
 - Three benefit bullets:
   - Guaranteed occupancy with long-term leases
   - Professional property care and maintenance
-  - Hassle-free partnership—we handle everything
+  - Hassle-free partnership. We handle everything
 - CTA: "Learn More" (scrolls to contact)
 
 ### 6. Contact Section
