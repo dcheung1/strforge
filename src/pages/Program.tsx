@@ -23,7 +23,7 @@ const phases = [
     icon: Cog,
   },
   {
-    title: "Phase 2 — Portfolio Build",
+    title: "Phase 2: Portfolio Build",
     description: "Unit sourcing, lease guidance, furnishing standards, vendor coordination, and quality control.",
     icon: Building2,
   },
