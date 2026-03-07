@@ -33,7 +33,7 @@ const phases = [
     icon: Cog,
   },
   {
-    title: "Phase 4 — Launch & Handoff",
+    title: "Phase 4: Launch & Handoff",
     description: "Go-live support, stabilization window, documentation transfer, and ownership transition.",
     icon: Rocket,
   },
