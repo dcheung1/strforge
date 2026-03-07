@@ -163,14 +163,32 @@ const Resources = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === CORRECT_PASSWORD) {
-      setIsAuthenticated(true);
-      setError("");
-    } else {
-      setError("Incorrect password. Please try again.");
+    setIsLoading(true);
+    setError("");
+
+    try {
+      const { data, error: fnError } = await supabase.functions.invoke("verify-resources-password", {
+        body: { password },
+      });
+
+      if (fnError) {
+        setError("Something went wrong. Please try again.");
+        return;
+      }
+
+      if (data?.authenticated) {
+        setIsAuthenticated(true);
+      } else {
+        setError("Incorrect password. Please try again.");
+      }
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
