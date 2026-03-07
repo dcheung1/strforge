@@ -28,7 +28,7 @@ const phases = [
     icon: Building2,
   },
   {
-    title: "Phase 3 — Operations Installation",
+    title: "Phase 3: Operations Installation",
     description: "Channel setup, pricing logic, SOPs, messaging, and escalation frameworks.",
     icon: Cog,
   },
