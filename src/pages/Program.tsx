@@ -383,7 +383,7 @@ const Program = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="flex items-start gap-6 p-6 rounded-lg border border-border/50 bg-card/50 hover:border-primary/30 transition-colors"
+                  className="flex items-start gap-6 p-6 rounded-lg border border-border/50 bg-card/50"
                 >
                   <div className="flex items-center gap-3 min-w-[120px]">
                     <Clock className="w-4 h-4 text-primary" />

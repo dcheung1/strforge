@@ -199,7 +199,7 @@ const Mentorship = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.4, delay: index * 0.08 }}
-                  className="flex items-start gap-6 p-6 rounded-lg border border-border/50 bg-card/50 hover:border-primary/30 transition-colors"
+                  className="flex items-start gap-6 p-6 rounded-lg border border-border/50 bg-card/50"
                 >
                   <div className="step-number shrink-0">{String(index + 1).padStart(2, "0")}</div>
                   <div>

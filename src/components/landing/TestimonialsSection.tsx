@@ -13,7 +13,7 @@ const testimonials = [
     context: "First-time operator",
   },
   {
-    quote: "The handoff was seamless. Clear documentation, proven systems, and a portfolio that was already stabilized.",
+    quote: "The handoff was smooth. Clear documentation, proven systems, and a portfolio that was already stabilized.",
     author: "Management Consultant",
     context: "5-unit portfolio",
   },
