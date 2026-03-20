@@ -9,6 +9,7 @@ import Mentorship from "./pages/Mentorship";
 import Apply from "./pages/Apply";
 import Resources from "./pages/Resources";
 import WebsiteBuilder from "./pages/WebsiteBuilder";
+import Waitlist from "./pages/Waitlist";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/apply" element={<Apply />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/resources/website-builder" element={<WebsiteBuilder />} />
+          <Route path="/waitlist" element={<Waitlist />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
