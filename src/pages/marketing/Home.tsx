@@ -1,6 +1,6 @@
-import { BentoGrid, BentoGridItem } from "@/components/aceternity/BentoGrid";
 import { InfiniteMovingCards } from "@/components/aceternity/InfiniteMovingCards";
-import { BackgroundGradient } from "@/components/aceternity/BackgroundGradient";
+import AnimatedToolsGrid from "@/components/landing/AnimatedToolsGrid";
+import { Button } from "@/components/ui/button";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -234,60 +234,7 @@ export default function MarketingHome() {
           </div>
         </motion.section>
 
-        {/* ═══════════ Tools Bento Grid ═══════════ */}
-        <section className="section-spacing">
-          <div className="section-container">
-            <motion.div {...sectionFadeUp} className="text-center mb-14">
-              <h2 className="text-foreground mb-4">
-                AI tools that run your{" "}
-                <span className="text-muted-foreground">Airbnb business</span>
-              </h2>
-              <p className="text-text-secondary max-w-xl mx-auto">
-                Use them yourself, or let us run them for you.
-              </p>
-            </motion.div>
-
-            <BentoGrid className="max-w-5xl mx-auto">
-              {toolItems.map((item, i) => (
-                <motion.div
-                  key={i}
-                  {...cardVariants}
-                  transition={{ duration: 0.6, delay: i * 0.15, ease: [0.25, 0.4, 0.25, 1] }}
-                  className={i === 0 || i === 3 ? "md:col-span-2" : ""}
-                >
-                  <BentoGridItem
-                    title={item.title}
-                    description={item.description}
-                    header={<ToolCardHeader icons={item.icons} />}
-                    icon={
-                      <span className="text-xs text-primary font-semibold uppercase tracking-wider">
-                        {item.label}
-                      </span>
-                    }
-                    className="h-full"
-                  />
-                </motion.div>
-              ))}
-            </BentoGrid>
-
-            <motion.div
-              className="text-center mt-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              <Link to="/tools">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} className="inline-block">
-                  <Button variant="ctaOutline" size="lg" className="group">
-                    Explore All Tools
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </motion.div>
-              </Link>
-            </motion.div>
-          </div>
-        </section>
+        <AnimatedToolsGrid />
 
         {/* ═══════════ Choose Your Path ═══════════ */}
         <section className="section-spacing border-t border-border/50 relative overflow-hidden">
