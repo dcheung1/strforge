@@ -73,8 +73,10 @@ const ToolCard = ({ item, index }: { item: typeof toolItems[0]; index: number })
 
 export default function AnimatedToolsGrid() {
   return (
-    <section className="section-spacing">
-      <div className="section-container">
+    <section className="section-spacing relative">
+      <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+      <div className="section-container relative z-10">
         {/* Header */}
         <motion.div
           className="text-center mb-14"
@@ -84,8 +86,10 @@ export default function AnimatedToolsGrid() {
           transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
         >
           <h2 className="text-foreground mb-4">
-            AI tools that run your{" "}
-            <span className="text-muted-foreground">Airbnb business</span>
+            Everything You Need to{" "}
+            <span className="bg-gradient-to-r from-primary to-primary-hover bg-clip-text text-transparent">
+              Build, Launch, and Scale
+            </span>
           </h2>
           <p className="text-text-secondary max-w-xl mx-auto">
             Use them yourself, or let us run them for you.

@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { useRef } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import HeroDashboardMockup from "@/components/landing/HeroDashboardMockup";
+import AnimatedStatsSection from "@/components/landing/AnimatedStatsSection";
 import {
   ArrowRight, Search, DollarSign, Phone, Handshake,
   Brain, Zap, Hammer, Settings, Check, Sparkles,
@@ -138,9 +140,9 @@ export default function MarketingHome() {
             transition={{ duration: 2 }}
           >
             <motion.div
-              className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-primary/15 blur-[150px]"
-              animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.25, 0.15] }}
-              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-primary/20 blur-[150px]"
+              animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.3, 0.15] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.div
               className="absolute top-1/3 left-1/4 w-[300px] h-[300px] rounded-full bg-primary/10 blur-[100px]"
@@ -171,7 +173,10 @@ export default function MarketingHome() {
                 transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
                 className="text-foreground leading-[1.1] text-4xl md:text-5xl lg:text-7xl mb-6 font-bold"
               >
-                Your AI Operating Partner
+                Your{" "}
+                <span className="bg-gradient-to-r from-primary to-primary-hover bg-clip-text text-transparent">
+                  AI Operating Partner
+                </span>
                 <br />
                 <span className="text-muted-foreground font-semibold">
                   to Start and Scale your entire Airbnb business.
@@ -208,12 +213,15 @@ export default function MarketingHome() {
                 </Link>
               </motion.div>
             </motion.div>
+
+            {/* Dashboard mockup */}
+            <HeroDashboardMockup />
           </motion.div>
         </section>
 
         {/* ═══════════ Social Proof ═══════════ */}
         <motion.section
-          className="py-8 border-y border-border/50"
+          className="py-8 relative"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -236,7 +244,9 @@ export default function MarketingHome() {
         <AnimatedToolsGrid />
 
         {/* ═══════════ Choose Your Path ═══════════ */}
-        <section className="section-spacing border-t border-border/50 relative overflow-hidden">
+        <section className="section-spacing relative overflow-hidden">
+          {/* Gradient divider */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
           {/* Section glow */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/5 blur-[120px]" />
@@ -345,7 +355,8 @@ export default function MarketingHome() {
         </section>
 
         {/* ═══════════ Testimonials ═══════════ */}
-        <section className="section-spacing border-t border-border/50">
+        <section className="section-spacing relative">
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
           <div className="section-container text-center mb-10">
             <motion.h2 {...sectionFadeUp} className="text-foreground mb-4">
               Built by an operator who's been there
@@ -370,8 +381,12 @@ export default function MarketingHome() {
           </motion.div>
         </section>
 
+        {/* ═══════════ Animated Stats ═══════════ */}
+        <AnimatedStatsSection />
+
         {/* ═══════════ Final CTA ═══════════ */}
-        <section className="relative section-spacing border-t border-border/50 overflow-hidden">
+        <section className="relative section-spacing overflow-hidden">
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
           {/* Animated glow */}
           <motion.div
             className="absolute inset-0 pointer-events-none"
