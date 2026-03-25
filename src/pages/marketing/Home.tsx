@@ -156,17 +156,6 @@ export default function MarketingHome() {
             style={{ opacity: heroOpacity, scale: heroScale }}
           >
             <motion.div initial="initial" animate="animate" variants={heroStagger}>
-              {/* Badge */}
-              <motion.div
-                variants={heroFadeUp}
-                transition={{ duration: 0.6 }}
-                className="flex justify-center mb-6"
-              >
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-xs font-medium text-primary tracking-wide uppercase">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  AI-Powered Platform
-                </span>
-              </motion.div>
 
               <motion.h1
                 variants={heroFadeUp}
