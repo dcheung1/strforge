@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Play } from "lucide-react";
+import { ArrowRight, Bot, BarChart3, DollarSign } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -10,7 +10,6 @@ const HeroSection = () => {
       
       <div className="section-container relative z-10">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Left: Text Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -19,48 +18,65 @@ const HeroSection = () => {
           >
             <div className="space-y-5 md:space-y-6">
               <h1 className="text-foreground leading-tight text-3xl md:text-5xl lg:text-6xl">
-                Corporate housing portfolios,{" "}
-                <span className="text-muted-foreground">built properly.</span>
+                Your AI Operating Partner{" "}
+                <span className="text-muted-foreground">for Airbnb Businesses</span>
               </h1>
               
               <p className="text-base md:text-xl text-text-secondary leading-relaxed max-w-xl">
-                STR Forge helps professionals create a cash-flowing corporate housing 
-                business without owning property, managing day-to-day operations, 
-                or betting on appreciation.
-              </p>
-              
-              <p className="text-sm text-muted-foreground">
-                A fixed-scope build, launch, and handoff engagement. Not coaching. Not property management.
+                Stop juggling spreadsheets and guessing games. STR Forge combines 
+                AI-powered expense tracking, revenue optimization, and remote 
+                management so you can scale without the operational chaos.
               </p>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-              <Link to="/apply" className="w-full sm:w-auto">
+              <Link to="/get-started" className="w-full sm:w-auto">
                 <Button variant="cta" size="xl" className="w-full sm:w-auto">
-                  Apply to Work With STR Forge
+                  Start Free Trial
+                  <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
-              <Link to="/program" className="w-full sm:w-auto">
+              <Link to="/how-it-works" className="w-full sm:w-auto">
                 <Button variant="ctaOutline" size="xl" className="w-full sm:w-auto">
-                  View Program Details
+                  Book a Demo
                 </Button>
               </Link>
             </div>
           </motion.div>
           
-          {/* Right: Video Placeholder */}
+          {/* Dashboard Mockup */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           >
-            <div className="video-placeholder cursor-pointer relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent" />
-              <div className="flex flex-col items-center gap-4 text-muted-foreground">
-                <div className="w-16 h-16 rounded-full border-2 border-muted-foreground/30 flex items-center justify-center">
-                  <Play className="w-6 h-6 ml-1" />
+            <div className="card-elevated p-4 md:p-6 space-y-4">
+              {/* Mini P&L Row */}
+              <div className="grid grid-cols-3 gap-3">
+                {[
+                  { label: "Unit #3 P&L", value: "+$2,140", icon: DollarSign },
+                  { label: "Occupancy", value: "87%", icon: BarChart3 },
+                  { label: "AI Actions", value: "12 today", icon: Bot },
+                ].map((stat) => (
+                  <div key={stat.label} className="p-3 rounded-lg bg-secondary/50 border border-border/50">
+                    <stat.icon className="w-4 h-4 text-primary mb-2" />
+                    <p className="text-xs text-muted-foreground">{stat.label}</p>
+                    <p className="text-sm font-semibold text-foreground">{stat.value}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* AI Agent Chat Mock */}
+              <div className="rounded-lg bg-secondary/30 border border-border/50 p-4 space-y-3">
+                <p className="text-xs text-muted-foreground uppercase tracking-wide">AI Agent</p>
+                <div className="space-y-2">
+                  <div className="bg-card p-3 rounded-lg border border-border/50 text-sm text-text-secondary">
+                    That Costco run ($247) looks like it covers Units #3 and #5. I split it 60/40 based on your usual pattern. Sound right?
+                  </div>
+                  <div className="bg-primary/10 p-3 rounded-lg border border-primary/20 text-sm text-foreground">
+                    Unit #5 had 3 WiFi complaints this month. Fix now or risk Superhost status.
+                  </div>
                 </div>
-                <span className="text-sm font-medium">Watch Overview</span>
               </div>
             </div>
           </motion.div>

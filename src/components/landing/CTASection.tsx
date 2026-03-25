@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 const CTASection = () => {
   return (
-    <section className="section-spacing bg-secondary/30 border-t border-border">
+    <section className="section-spacing border-t border-border">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -15,24 +15,28 @@ const CTASection = () => {
           className="max-w-2xl mx-auto text-center"
         >
           <h2 className="text-foreground mb-6">
-            Ready to build?
+            Start with software. Scale to full management.
           </h2>
           
-          <p className="text-base md:text-lg text-text-secondary mb-8 md:mb-10">
-            If you meet the qualifications and are ready to own a properly 
-            built corporate housing business, apply to work with STR Forge.
+          <p className="text-base md:text-lg text-text-secondary mb-4">
+            Most operators start with our AI tools and upgrade to remote management 
+            once they see the results. No risk, no upfront cost.
+          </p>
+
+          <p className="text-sm text-muted-foreground mb-8 md:mb-10">
+            14-day free trial on Software tier. No credit card required.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
-            <Link to="/apply" className="w-full sm:w-auto">
-              <Button variant="cta" size="xl" className="w-full sm:w-auto">
-                Apply to Work With STR Forge
-                <ArrowRight className="w-4 h-4" />
+            <Link to="/get-started" className="w-full sm:w-auto">
+              <Button variant="cta" size="xl" className="w-full sm:w-auto group">
+                Start Free Trial
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Link to="/program" className="w-full sm:w-auto">
+            <Link to="/get-started" className="w-full sm:w-auto">
               <Button variant="ctaOutline" size="lg" className="w-full sm:w-auto">
-                View Full Program Details
+                Book a Demo
               </Button>
             </Link>
           </div>

@@ -1,11 +1,12 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/landing/HeroSection";
-import WhatWeDoSection from "@/components/landing/WhatWeDoSection";
+import ProblemSection from "@/components/landing/ProblemSection";
+import SolutionSection from "@/components/landing/SolutionSection";
 import HowItWorksSection from "@/components/landing/HowItWorksSection";
-import WhyThisModelSection from "@/components/landing/WhyThisModelSection";
-import TestimonialsSection from "@/components/landing/TestimonialsSection";
-import QualificationSection from "@/components/landing/QualificationSection";
+import ComparisonSection from "@/components/landing/ComparisonSection";
+import CredibilitySection from "@/components/landing/CredibilitySection";
+import FAQSection from "@/components/landing/FAQSection";
 import CTASection from "@/components/landing/CTASection";
 
 const Index = () => {
@@ -14,11 +15,12 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        <WhatWeDoSection />
+        <ProblemSection />
+        <SolutionSection />
         <HowItWorksSection />
-        <WhyThisModelSection />
-        <TestimonialsSection />
-        <QualificationSection />
+        <ComparisonSection />
+        <CredibilitySection />
+        <FAQSection />
         <CTASection />
       </main>
       <Footer />
