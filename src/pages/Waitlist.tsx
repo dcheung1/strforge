@@ -119,11 +119,11 @@ const Waitlist = () => {
           >
             <Badge className="mb-4">STR Forge Early Access</Badge>
             <h1 className="text-3xl font-bold leading-tight md:text-5xl">
-              Build Your STR Portfolio Like a Pro
+              Your AI Operating Partner for Airbnb Businesses
             </h1>
             <p className="mt-5 text-base text-muted-foreground md:text-lg">
-              Stop guessing. Stop losing money on bad deals. Build your STR portfolio with AI-powered tools +
-              the proven frameworks from 240 units.
+              AI-powered expense tracking, revenue optimization, and remote management. 
+              Built by an operator who's run 240 units.
             </p>
             <Button size="lg" className="mt-8" onClick={scrollToForm}>
               Reserve Your Spot
