@@ -75,7 +75,7 @@ const toolItems = [
     label: "AI Outreach",
   },
   {
-    title: "The Bellows",
+    title: "Jarvis",
     description: "An agent that monitors your business 24/7. Learns expense allocation, flags issues, automates guest comms.",
     icons: [Brain, Zap],
     label: "Operations AI",
@@ -89,7 +89,7 @@ const toolItems = [
 ];
 
 const serviceTiers = [
-  "All 4 tools (DealForge, Negotiator, Bellows, Foundry)",
+  "All 4 tools (DealForge, Negotiator, Jarvis, Foundry)",
   "Revenue optimization (2.5% of revenue)",
   "Remote management (10-15% of revenue)",
 ];
@@ -263,7 +263,7 @@ export default function MarketingHome() {
                 </p>
                 <ul className="space-y-3 mb-6 flex-1">
                   {[
-                    "All 4 tools (DealForge, Negotiator, Bellows, Foundry)",
+                    "All 4 tools (DealForge, Negotiator, Jarvis, Foundry)",
                     "Resource library + Discord community",
                     "14-day free trial",
                   ].map((f, i) => (

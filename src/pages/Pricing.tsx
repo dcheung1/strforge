@@ -132,7 +132,7 @@ const Pricing = () => {
                     "DealForge (deal analyzer + Chrome extension)",
                     "The Foundry (website builder + business setup)",
                     "The Negotiator (AI cold caller)",
-                    "The Bellows (operations AI + expense tracking)",
+                    "Jarvis (operations AI + expense tracking)",
                     "Resource library + Discord community",
                   ].map((f, i) => (
                     <motion.li

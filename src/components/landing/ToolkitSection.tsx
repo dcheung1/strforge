@@ -52,7 +52,7 @@ const tools = [
   },
   {
     icons: [Brain, Zap],
-    name: "The Bellows",
+    name: "Jarvis",
     headline: "Your AI operating partner",
     description:
       "Not a dashboard you log into—an agent that monitors your business 24/7. Learns how you allocate expenses, flags issues before they escalate, automates guest communication.",
@@ -63,7 +63,7 @@ const tools = [
       "Guest communication automation",
     ],
     cta: "See It In Action",
-    ctaLink: "/tools#bellows",
+    ctaLink: "/tools#jarvis",
   },
 ];
 

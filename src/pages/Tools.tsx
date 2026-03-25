@@ -82,9 +82,9 @@ const tools = [
     standout: true,
   },
   {
-    id: "bellows",
+    id: "jarvis",
     icons: [Brain, Zap],
-    name: "The Bellows",
+    name: "Jarvis",
     tagline: "Your AI operating partner",
     description:
       "Not a dashboard you log into -- an agent that monitors your business 24/7. It learns how you allocate expenses, flags issues before they escalate, and automates guest communication so you can focus on growth.",
