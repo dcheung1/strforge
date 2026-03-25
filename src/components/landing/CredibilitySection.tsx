@@ -4,7 +4,7 @@ const stats = [
   { value: "240", label: "Units operated" },
   { value: "$5M+", label: "Revenue generated" },
   { value: "Featured", label: "in Business Insider" },
-  { value: "18", label: "Units running profitably today" },
+  { value: "5 Cities", label: "Operated across the US" },
 ];
 
 const CredibilitySection = () => {
@@ -31,9 +31,9 @@ const CredibilitySection = () => {
             className="space-y-6 text-text-secondary leading-relaxed"
           >
             <p>
-              I scaled to 240 units across 5 cities, $5M a year in revenue. 
-              Saw the crash coming. Sonder went bankrupt, StayAlfred collapsed. 
-              I sold 180+ units strategically, kept the best 18 that run on autopilot.
+              I scaled to 240 units across 5 cities, generating $5M a year in revenue. 
+              I've seen what works and what doesn't—Sonder went bankrupt, StayAlfred collapsed. 
+              I built the systems that actually survive market downturns.
             </p>
             <p>
               Now I manage my portfolio with AI and offshore VAs. Five hours a week, 
