@@ -357,7 +357,7 @@ export default function MarketingHome() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="text-text-secondary max-w-xl mx-auto"
             >
-              Derek Cheung scaled to 240 units, saw the crash coming, and built the tools he wishes existed.
+              Built from 8 years experience with $15M generated and 200+ units operated
             </motion.p>
           </div>
           <motion.div
