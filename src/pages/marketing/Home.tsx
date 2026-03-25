@@ -1,25 +1,42 @@
 import { BentoGrid, BentoGridItem } from "@/components/aceternity/BentoGrid";
 import { InfiniteMovingCards } from "@/components/aceternity/InfiniteMovingCards";
+import { BackgroundGradient } from "@/components/aceternity/BackgroundGradient";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useRef } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import {
   ArrowRight, Search, DollarSign, Phone, Handshake,
-  Brain, Zap, Hammer, Settings, Check,
+  Brain, Zap, Hammer, Settings, Check, Sparkles,
 } from "lucide-react";
 
-const fadeUp = {
-  initial: { opacity: 0, y: 30 },
+/* ─── Animation variants ─── */
+const heroFadeUp = {
+  initial: { opacity: 0, y: 40 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 },
 };
 
-const stagger = {
-  animate: { transition: { staggerChildren: 0.1 } },
+const heroStagger = {
+  initial: {},
+  animate: { transition: { staggerChildren: 0.2, delayChildren: 0.3 } },
 };
 
+const sectionFadeUp = {
+  initial: { opacity: 0, y: 60 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-100px" },
+  transition: { duration: 0.8, ease: [0.25, 0.4, 0.25, 1] as [number, number, number, number] },
+};
+
+const cardVariants = {
+  initial: { opacity: 0, y: 40, scale: 0.95 },
+  whileInView: { opacity: 1, y: 0, scale: 1 },
+  viewport: { once: true, margin: "-60px" },
+};
+
+/* ─── Data ─── */
 const testimonials = [
   {
     quote: "STR Forge saved me 20 hours a month on expense tracking alone. The AI knows my allocation patterns better than I do.",
@@ -47,126 +64,180 @@ const toolItems = [
   {
     title: "DealForge",
     description: "Analyze any rental arbitrage deal instantly with proprietary scoring. Chrome extension evaluates properties while you browse.",
-    header: (
-      <div className="flex items-center gap-2 p-4 rounded-xl bg-secondary/50 min-h-[6rem]">
-        <Search className="w-8 h-8 text-primary" />
-        <DollarSign className="w-8 h-8 text-primary" />
-      </div>
-    ),
-    icon: <span className="text-xs text-primary font-semibold uppercase tracking-wider">Deal Analysis</span>,
+    icons: [Search, DollarSign],
+    label: "Deal Analysis",
   },
   {
     title: "The Negotiator",
     description: "AI makes calls, sends texts, schedules tours, and follows up automatically. Nobody else has this.",
-    header: (
-      <div className="flex items-center gap-2 p-4 rounded-xl bg-secondary/50 min-h-[6rem]">
-        <Phone className="w-8 h-8 text-primary" />
-        <Handshake className="w-8 h-8 text-primary" />
-      </div>
-    ),
-    icon: <span className="text-xs text-primary font-semibold uppercase tracking-wider">AI Outreach</span>,
+    icons: [Phone, Handshake],
+    label: "AI Outreach",
   },
   {
     title: "The Bellows",
     description: "An agent that monitors your business 24/7. Learns expense allocation, flags issues, automates guest comms.",
-    header: (
-      <div className="flex items-center gap-2 p-4 rounded-xl bg-secondary/50 min-h-[6rem]">
-        <Brain className="w-8 h-8 text-primary" />
-        <Zap className="w-8 h-8 text-primary" />
-      </div>
-    ),
-    icon: <span className="text-xs text-primary font-semibold uppercase tracking-wider">Operations AI</span>,
+    icons: [Brain, Zap],
+    label: "Operations AI",
   },
   {
     title: "The Foundry",
     description: "AI website builder creates your direct booking site in minutes. Plus business setup automation.",
-    header: (
-      <div className="flex items-center gap-2 p-4 rounded-xl bg-secondary/50 min-h-[6rem]">
-        <Hammer className="w-8 h-8 text-primary" />
-        <Settings className="w-8 h-8 text-primary" />
-      </div>
-    ),
-    icon: <span className="text-xs text-primary font-semibold uppercase tracking-wider">Launch Tools</span>,
+    icons: [Hammer, Settings],
+    label: "Launch Tools",
   },
 ];
 
 const serviceTiers = [
-  { label: "All 4 tools (DealForge, Negotiator, Bellows, Foundry)" },
-  { label: "Revenue optimization (2.5% of revenue)" },
-  { label: "Remote management (10-15% of revenue)" },
+  "All 4 tools (DealForge, Negotiator, Bellows, Foundry)",
+  "Revenue optimization (2.5% of revenue)",
+  "Remote management (10-15% of revenue)",
 ];
 
+/* ─── Animated Tool Card Header ─── */
+const ToolCardHeader = ({ icons }: { icons: typeof Search[] }) => (
+  <motion.div
+    className="flex items-center gap-3 p-6 rounded-xl bg-secondary/30 border border-border/30 min-h-[6rem] relative overflow-hidden group"
+    whileHover={{ scale: 1.02 }}
+    transition={{ type: "spring", stiffness: 300 }}
+  >
+    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+    {icons.map((Icon, i) => (
+      <motion.div
+        key={i}
+        initial={{ rotate: -10, opacity: 0 }}
+        whileInView={{ rotate: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: i * 0.15 + 0.3, duration: 0.5 }}
+      >
+        <Icon className="w-8 h-8 text-primary relative z-10" />
+      </motion.div>
+    ))}
+  </motion.div>
+);
+
 export default function MarketingHome() {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
       <main>
-        {/* ─── Hero ─── */}
-        <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
-          {/* Ambient glow */}
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-primary/10 blur-[120px]" />
-          </div>
+        {/* ═══════════ Hero ═══════════ */}
+        <section ref={heroRef} className="relative pt-32 pb-24 md:pt-44 md:pb-32 overflow-hidden">
+          {/* Animated ambient glows */}
+          <motion.div
+            className="absolute inset-0 pointer-events-none"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2 }}
+          >
+            <motion.div
+              className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-primary/15 blur-[150px]"
+              animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.25, 0.15] }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div
+              className="absolute top-1/3 left-1/4 w-[300px] h-[300px] rounded-full bg-primary/10 blur-[100px]"
+              animate={{ x: [0, 50, 0], y: [0, -30, 0] }}
+              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </motion.div>
 
           <motion.div
             className="section-container relative z-10 text-center"
-            initial="initial"
-            animate="animate"
-            variants={stagger}
+            style={{ opacity: heroOpacity, scale: heroScale }}
           >
-            <motion.h1
-              variants={fadeUp}
-              className="text-foreground leading-tight text-3xl md:text-5xl lg:text-6xl mb-6"
-            >
-              Your AI Operating Partner
-              <br />
-              <span className="text-muted-foreground">
-                to Start and Scale your entire Airbnb business.
-              </span>
-            </motion.h1>
+            <motion.div initial="initial" animate="animate" variants={heroStagger}>
+              {/* Badge */}
+              <motion.div
+                variants={heroFadeUp}
+                transition={{ duration: 0.6 }}
+                className="flex justify-center mb-6"
+              >
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-xs font-medium text-primary tracking-wide uppercase">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  AI-Powered Platform
+                </span>
+              </motion.div>
 
-            <motion.p
-              variants={fadeUp}
-              className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-10"
-            >
-              Find &amp; analyze deals, cold call and negotiate, launch listings, and automate operations and profit tracking. All powered by AI agents.
-            </motion.p>
+              <motion.h1
+                variants={heroFadeUp}
+                transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
+                className="text-foreground leading-[1.1] text-4xl md:text-5xl lg:text-7xl mb-6 font-bold"
+              >
+                Your AI Operating Partner
+                <br />
+                <span className="text-muted-foreground font-semibold">
+                  to Start and Scale your entire Airbnb business.
+                </span>
+              </motion.h1>
 
-            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/get-started">
-                <Button variant="cta" size="xl" className="group w-full sm:w-auto">
-                  Start Free Trial
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-              <Link to="/get-started">
-                <Button variant="ctaOutline" size="xl" className="w-full sm:w-auto">
-                  Book a Demo
-                </Button>
-              </Link>
+              <motion.p
+                variants={heroFadeUp}
+                transition={{ duration: 0.7 }}
+                className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-12"
+              >
+                Find &amp; analyze deals, cold call and negotiate, launch listings, and automate operations and profit tracking. All powered by AI agents.
+              </motion.p>
+
+              <motion.div
+                variants={heroFadeUp}
+                transition={{ duration: 0.6 }}
+                className="flex flex-col sm:flex-row gap-4 justify-center"
+              >
+                <Link to="/get-started">
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+                    <Button variant="cta" size="xl" className="group w-full sm:w-auto shadow-lg shadow-primary/20">
+                      Start Free Trial
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </motion.div>
+                </Link>
+                <Link to="/get-started">
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+                    <Button variant="ctaOutline" size="xl" className="w-full sm:w-auto">
+                      Book a Demo
+                    </Button>
+                  </motion.div>
+                </Link>
+              </motion.div>
             </motion.div>
           </motion.div>
         </section>
 
-        {/* ─── Social Proof ─── */}
-        <section className="py-8 border-y border-border/50">
+        {/* ═══════════ Social Proof ═══════════ */}
+        <motion.section
+          className="py-8 border-y border-border/50"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+        >
           <div className="section-container flex items-center justify-center gap-3">
             <span className="text-sm text-muted-foreground">Trusted by operators managing</span>
-            <span className="text-sm font-semibold text-foreground">5,000+ units</span>
+            <motion.span
+              className="text-sm font-semibold text-foreground"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              5,000+ units
+            </motion.span>
           </div>
-        </section>
+        </motion.section>
 
-        {/* ─── Tools Bento Grid ─── */}
+        {/* ═══════════ Tools Bento Grid ═══════════ */}
         <section className="section-spacing">
           <div className="section-container">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5 }}
-              className="text-center mb-12"
-            >
+            <motion.div {...sectionFadeUp} className="text-center mb-14">
               <h2 className="text-foreground mb-4">
                 AI tools that run your{" "}
                 <span className="text-muted-foreground">Airbnb business</span>
@@ -178,37 +249,57 @@ export default function MarketingHome() {
 
             <BentoGrid className="max-w-5xl mx-auto">
               {toolItems.map((item, i) => (
-                <BentoGridItem
+                <motion.div
                   key={i}
-                  title={item.title}
-                  description={item.description}
-                  header={item.header}
-                  icon={item.icon}
+                  {...cardVariants}
+                  transition={{ duration: 0.6, delay: i * 0.15, ease: [0.25, 0.4, 0.25, 1] }}
                   className={i === 0 || i === 3 ? "md:col-span-2" : ""}
-                />
+                >
+                  <BentoGridItem
+                    title={item.title}
+                    description={item.description}
+                    header={<ToolCardHeader icons={item.icons} />}
+                    icon={
+                      <span className="text-xs text-primary font-semibold uppercase tracking-wider">
+                        {item.label}
+                      </span>
+                    }
+                    className="h-full"
+                  />
+                </motion.div>
               ))}
             </BentoGrid>
 
-            <div className="text-center mt-10">
-              <Link to="/tools">
-                <Button variant="ctaOutline" size="lg" className="group">
-                  Explore All Tools
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── Choose Your Path ─── */}
-        <section className="section-spacing border-t border-border/50">
-          <div className="section-container">
-            <motion.h2
+            <motion.div
+              className="text-center mt-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-foreground text-center mb-12"
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              <Link to="/tools">
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} className="inline-block">
+                  <Button variant="ctaOutline" size="lg" className="group">
+                    Explore All Tools
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </motion.div>
+              </Link>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ═══════════ Choose Your Path ═══════════ */}
+        <section className="section-spacing border-t border-border/50 relative overflow-hidden">
+          {/* Section glow */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/5 blur-[120px]" />
+          </div>
+
+          <div className="section-container relative z-10">
+            <motion.h2
+              {...sectionFadeUp}
+              className="text-foreground text-center mb-14"
             >
               Choose Your Path
             </motion.h2>
@@ -216,11 +307,10 @@ export default function MarketingHome() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {/* Software DIY */}
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="card-elevated p-6 md:p-8 flex flex-col"
+                {...cardVariants}
+                transition={{ duration: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className="card-elevated p-6 md:p-8 flex flex-col hover:border-border/80 transition-colors duration-300"
               >
                 <h3 className="text-xl font-semibold text-foreground mb-2">Software (DIY)</h3>
                 <p className="text-sm text-muted-foreground italic mb-6">
@@ -232,125 +322,159 @@ export default function MarketingHome() {
                     "Resource library + Discord community",
                     "14-day free trial",
                   ].map((f, i) => (
-                    <li key={i} className="text-sm text-text-secondary flex items-start gap-2">
+                    <motion.li
+                      key={i}
+                      className="text-sm text-text-secondary flex items-start gap-2"
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1 + 0.3, duration: 0.4 }}
+                    >
                       <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                       {f}
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
                 <p className="text-2xl font-semibold text-foreground mb-4">$97-197/mo</p>
                 <Link to="/get-started">
-                  <Button variant="cta" className="w-full group">
-                    Start Free Trial
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+                  <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+                    <Button variant="cta" className="w-full group">
+                      Start Free Trial
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </motion.div>
                 </Link>
               </motion.div>
 
               {/* Services */}
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="card-elevated p-6 md:p-8 border-primary/40 ring-1 ring-primary/20 flex flex-col"
+                {...cardVariants}
+                transition={{ duration: 0.7, delay: 0.15, ease: [0.25, 0.4, 0.25, 1] }}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className="card-elevated p-6 md:p-8 border-primary/40 ring-1 ring-primary/20 flex flex-col relative overflow-hidden"
               >
-                <div className="flex items-center gap-2 mb-2">
+                {/* Glow effect on featured card */}
+                <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/10 rounded-full blur-[60px] pointer-events-none" />
+
+                <div className="flex items-center gap-2 mb-2 relative z-10">
                   <h3 className="text-xl font-semibold text-foreground">Services (Done-With-You)</h3>
-                  <span className="text-[10px] font-semibold uppercase tracking-wider bg-primary/20 text-primary px-2 py-0.5 rounded">
+                  <motion.span
+                    className="text-[10px] font-semibold uppercase tracking-wider bg-primary/20 text-primary px-2 py-0.5 rounded"
+                    animate={{ opacity: [1, 0.6, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
                     Popular
-                  </span>
+                  </motion.span>
                 </div>
                 <p className="text-sm text-muted-foreground italic mb-6">
                   "Use the tools FOR me, maximize my profit"
                 </p>
                 <ul className="space-y-3 mb-6 flex-1">
                   {serviceTiers.map((t, i) => (
-                    <li key={i} className="text-sm text-text-secondary flex items-start gap-2">
+                    <motion.li
+                      key={i}
+                      className="text-sm text-text-secondary flex items-start gap-2"
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1 + 0.4, duration: 0.4 }}
+                    >
                       <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      {t.label}
-                    </li>
+                      {t}
+                    </motion.li>
                   ))}
                 </ul>
                 <p className="text-2xl font-semibold text-foreground mb-4">2.5-15% of revenue</p>
                 <Link to="/get-started">
-                  <Button variant="cta" className="w-full group">
-                    Book a Demo
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+                  <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+                    <Button variant="cta" className="w-full group">
+                      Book a Demo
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </motion.div>
                 </Link>
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* ─── Testimonials ─── */}
+        {/* ═══════════ Testimonials ═══════════ */}
         <section className="section-spacing border-t border-border/50">
           <div className="section-container text-center mb-10">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-foreground mb-4"
-            >
+            <motion.h2 {...sectionFadeUp} className="text-foreground mb-4">
               Built by an operator who's been there
             </motion.h2>
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, delay: 0.2 }}
               className="text-text-secondary max-w-xl mx-auto"
             >
               Derek Cheung scaled to 240 units, saw the crash coming, and built the tools he wishes existed.
             </motion.p>
           </div>
-          <InfiniteMovingCards items={testimonials} direction="left" speed="slow" />
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.4 }}
+          >
+            <InfiniteMovingCards items={testimonials} direction="left" speed="slow" />
+          </motion.div>
         </section>
 
-        {/* ─── Final CTA ─── */}
+        {/* ═══════════ Final CTA ═══════════ */}
         <section className="relative section-spacing border-t border-border/50 overflow-hidden">
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full bg-primary/8 blur-[100px]" />
-          </div>
+          {/* Animated glow */}
+          <motion.div
+            className="absolute inset-0 pointer-events-none"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5 }}
+          >
+            <motion.div
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-primary/10 blur-[120px]"
+              animate={{ scale: [1, 1.15, 1] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </motion.div>
 
           <div className="section-container relative z-10 text-center">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-foreground mb-4"
-            >
+            <motion.h2 {...sectionFadeUp} className="text-foreground mb-4">
               Start with software. Scale to full management.
             </motion.h2>
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-text-secondary max-w-lg mx-auto mb-8"
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="text-text-secondary max-w-lg mx-auto mb-10"
             >
               Most operators start with our AI tools and upgrade to remote management once they see the results. No risk, no upfront cost.
             </motion.p>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Link to="/get-started">
-                <Button variant="cta" size="xl" className="group w-full sm:w-auto">
-                  Start 14-Day Free Trial
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+                  <Button variant="cta" size="xl" className="group w-full sm:w-auto shadow-lg shadow-primary/20">
+                    Start 14-Day Free Trial
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </motion.div>
               </Link>
               <Link to="/get-started">
-                <Button variant="ctaOutline" size="xl" className="w-full sm:w-auto">
-                  Book a Demo Call
-                </Button>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+                  <Button variant="ctaOutline" size="xl" className="w-full sm:w-auto">
+                    Book a Demo Call
+                  </Button>
+                </motion.div>
               </Link>
             </motion.div>
           </div>
