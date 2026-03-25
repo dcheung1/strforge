@@ -11,6 +11,7 @@ import GetStarted from "./pages/GetStarted";
 import Resources from "./pages/Resources";
 import WebsiteBuilder from "./pages/WebsiteBuilder";
 import Waitlist from "./pages/Waitlist";
+import Tools from "./pages/Tools";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/tools" element={<Tools />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/remote-management" element={<RemoteManagement />} />
           <Route path="/get-started" element={<GetStarted />} />
