@@ -130,11 +130,11 @@
 
   @keyframes draw-stroke {
     0% {
-      stroke-dasharray: 60;
-      stroke-dashoffset: 60;
+      stroke-dasharray: 200;
+      stroke-dashoffset: 200;
     }
     100% {
-      stroke-dasharray: 60;
+      stroke-dasharray: 200;
       stroke-dashoffset: 0;
     }
   }
