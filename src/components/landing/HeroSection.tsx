@@ -18,13 +18,13 @@ const HeroSection = () => {
           >
             <div className="space-y-5 md:space-y-6">
               <h1 className="text-foreground leading-tight text-3xl md:text-5xl lg:text-6xl">
-                Your AI Operating Partner{" "}
+                Your AI Operating Partner
+                <br />
                 <span className="text-muted-foreground">to Start and Scale your entire Airbnb business.</span>
               </h1>
               
               <p className="text-base md:text-xl text-text-secondary leading-relaxed max-w-xl">
-                Find deals, cold call landlords, launch listings, and automate operations—all 
-                powered by AI. Use the tools yourself or let us run them for you.
+                Find &amp; analyze deals, cold call and negotiate, launch listings, and automate operations and profit tracking. All powered by AI agents.
               </p>
             </div>
             
