@@ -33,6 +33,16 @@ const toolItems = [
   },
 ];
 
+/* Icon that draws its stroke path on hover via CSS */
+const DrawIcon = ({ Icon, delay }: { Icon: typeof Search; delay: number }) => (
+  <div
+    className="draw-icon"
+    style={{ "--draw-delay": `${delay}s` } as React.CSSProperties}
+  >
+    <Icon className="w-7 h-7 text-primary" />
+  </div>
+);
+
 const ToolCard = ({ item, index }: { item: typeof toolItems[0]; index: number }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
@@ -45,15 +55,7 @@ const ToolCard = ({ item, index }: { item: typeof toolItems[0]; index: number })
       {/* Icon header */}
       <div className="flex items-center gap-3 p-5 rounded-lg bg-secondary/30 border border-border/30 min-h-[5rem]">
         {item.icons.map((Icon, j) => (
-          <motion.div
-            key={j}
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 + j * 0.1 + 0.2, duration: 0.4 }}
-          >
-            <Icon className="w-7 h-7 text-primary" />
-          </motion.div>
+          <DrawIcon key={j} Icon={Icon} delay={j * 0.15} />
         ))}
       </div>
 
