@@ -15,32 +15,37 @@ const Footer = () => {
             />
           </Link>
           
-          {/* Navigation Links - Stack on mobile, row on desktop */}
           <nav className="w-full sm:w-auto max-w-sm sm:max-w-none mx-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-6 md:gap-8">
             <Link 
               to="/" 
               className="text-sm text-muted-foreground hover:text-foreground transition-colors text-center sm:text-left py-2 sm:py-0"
             >
-              Overview
+              Home
             </Link>
             <Link 
-              to="/program" 
+              to="/how-it-works" 
               className="text-sm text-muted-foreground hover:text-foreground transition-colors text-center sm:text-left py-2 sm:py-0"
             >
-              Program
+              How It Works
             </Link>
             <Link 
-              to="/apply" 
+              to="/pricing" 
               className="text-sm text-muted-foreground hover:text-foreground transition-colors text-center sm:text-left py-2 sm:py-0"
             >
-              Apply
+              Pricing
+            </Link>
+            <Link 
+              to="/remote-management" 
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors text-center sm:text-left py-2 sm:py-0"
+            >
+              Remote Management
             </Link>
             <Link 
               to="/resources" 
               className="text-sm font-medium text-foreground sm:font-normal sm:text-muted-foreground hover:text-foreground transition-colors flex items-center justify-center sm:justify-start gap-2 rounded-md border border-border bg-secondary/40 px-3 py-2 sm:bg-transparent sm:border-0 sm:px-0 sm:py-0"
             >
               <Lock className="w-3.5 h-3.5" />
-              Client Resources
+              Resource Vault
             </Link>
           </nav>
         </div>
@@ -48,8 +53,8 @@ const Footer = () => {
         <div className="divider my-8" />
         
         <div className="flex flex-col items-center gap-4 text-sm text-muted-foreground text-center">
-          <p>© {new Date().getFullYear()} STR Forge. All rights reserved.</p>
-          <p className="text-xs md:text-sm">A fixed-scope build → launch → handoff engagement.</p>
+          <p>&copy; {new Date().getFullYear()} STR Forge. All rights reserved.</p>
+          <p className="text-xs md:text-sm">Your AI operating partner for Airbnb businesses.</p>
         </div>
       </div>
     </footer>

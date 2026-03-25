@@ -10,9 +10,10 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   
   const navLinks = [
-    { to: "/", label: "Overview" },
-    { to: "/program", label: "DFY Program" },
-    { to: "/mentorship", label: "Mentorship" },
+    { to: "/", label: "Home" },
+    { to: "/how-it-works", label: "How It Works" },
+    { to: "/pricing", label: "Pricing" },
+    { to: "/resources", label: "Resources" },
   ];
   
   return (
@@ -70,9 +71,9 @@ const Header = () => {
                     </Link>
                   ))}
                   <div className="pt-4 border-t border-border">
-                    <Link to="/apply" onClick={() => setIsOpen(false)}>
+                    <Link to="/get-started" onClick={() => setIsOpen(false)}>
                       <Button variant="cta" className="w-full">
-                        Apply Now
+                        Get Started
                       </Button>
                     </Link>
                   </div>
@@ -81,16 +82,16 @@ const Header = () => {
             </Sheet>
             
             {/* Desktop CTA */}
-            <Link to="/apply" className="hidden md:block">
+            <Link to="/get-started" className="hidden md:block">
               <Button variant="cta" size="default">
-                Apply Now
+                Get Started
               </Button>
             </Link>
             
             {/* Mobile CTA */}
-            <Link to="/apply" className="md:hidden">
+            <Link to="/get-started" className="md:hidden">
               <Button variant="cta" size="sm">
-                Apply
+                Start
               </Button>
             </Link>
           </div>
