@@ -20,7 +20,7 @@ const toolItems = [
     label: "AI Outreach",
   },
   {
-    title: "The Bellows",
+    title: "AI CEO",
     description: "An agent that monitors your business 24/7. Learns expense allocation, flags issues, automates guest comms.",
     icons: [Brain, Zap],
     label: "Operations AI",
