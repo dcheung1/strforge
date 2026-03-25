@@ -124,7 +124,7 @@
 
   .group:hover .draw-icon svg {
     opacity: 1;
-    animation: draw-stroke 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: draw-stroke 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     animation-delay: var(--draw-delay, 0s);
   }
 
