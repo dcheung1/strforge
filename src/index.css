@@ -114,6 +114,7 @@
   }
 }
 
+@layer components {
   /* Draw-in icon animation on card hover */
   .draw-icon svg {
     stroke-dasharray: 100;
@@ -125,7 +126,6 @@
   .group:hover .draw-icon svg {
     stroke-dashoffset: 0;
   }
-
 
   .section-container {
     @apply max-w-6xl mx-auto px-6 md:px-8 lg:px-12;
@@ -167,6 +167,8 @@
     @apply h-px bg-gradient-to-r from-transparent via-border to-transparent;
   }
 }
+
+
 
 @layer utilities {
   .animate-fade-up {
