@@ -18,8 +18,8 @@ const HeroSection = () => {
           >
             <div className="space-y-5 md:space-y-6">
               <h1 className="text-foreground leading-tight text-3xl md:text-5xl lg:text-6xl">
-                4 AI tools.{" "}
-                <span className="text-muted-foreground">One platform to run your entire Airbnb business.</span>
+                Your AI Operating Partner{" "}
+                <span className="text-muted-foreground">to Start and Scale your entire Airbnb business.</span>
               </h1>
               
               <p className="text-base md:text-xl text-text-secondary leading-relaxed max-w-xl">
