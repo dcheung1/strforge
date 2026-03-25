@@ -117,14 +117,28 @@
 @layer components {
   /* Draw-in icon animation on card hover */
   .draw-icon svg {
-    stroke-dasharray: 100;
-    stroke-dashoffset: 100;
-    transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    transition-delay: var(--draw-delay, 0s);
+    opacity: 0.35;
+    transition: opacity 0.4s ease, stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0s, var(--draw-delay, 0s);
   }
 
   .group:hover .draw-icon svg {
+    opacity: 1;
+    stroke-dasharray: 80;
     stroke-dashoffset: 0;
+    animation: draw-stroke 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: var(--draw-delay, 0s);
+  }
+
+  @keyframes draw-stroke {
+    from {
+      stroke-dasharray: 80;
+      stroke-dashoffset: 80;
+    }
+    to {
+      stroke-dasharray: 80;
+      stroke-dashoffset: 0;
+    }
   }
 
   .section-container {
