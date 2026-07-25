@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "sdk_version": "0.24.0",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "str-forge-mcp",
+      "version": "0.1.0",
+      "title": "STR Forge"
+    },
+    "tools": [
+      {
+        "name": "get_toolkit",
+        "title": "Get AI toolkit",
+        "description": "Return the four AI tools STR Forge offers for rental arbitrage operators (DealForge, The Foundry, The Negotiator, Jarvis) with pricing and descriptions.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_pricing",
+        "title": "Get pricing",
+        "description": "Return STR Forge pricing across the Software (DIY) and Services (Done-With-You) tiers.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_founder_info",
+        "title": "Get founder info",
+        "description": "Return background on STR Forge founder Derek Cheung and how the product is positioned.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_resources_overview",
+        "title": "Get resource vault overview",
+        "description": "Describe what lives in the STR Forge client Resource Vault (does not expose the password or protected files).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
