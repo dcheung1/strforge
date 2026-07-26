@@ -80,7 +80,7 @@ const investorOutcomes = [
   "A real portfolio strategy — arbitrage for scale, purchase for equity and tax savings",
   "Curated arbitrage and purchase deals matched to your capital, market, and timeline",
   "A management team already attached so units perform without your daily attention",
-  "One consultative relationship across sourcing, launch, and operations",
+  "One hands-on relationship across sourcing, launch, and operations",
 ];
 
 const dealRoomRows = [
@@ -222,8 +222,7 @@ export default function MarketingHome() {
                 transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
                 className="mx-auto mb-6 max-w-5xl text-4xl font-bold leading-tight text-foreground md:text-5xl lg:text-7xl"
               >
-                STR Forge
-                <span className="block text-foreground">forge real Airbnb portfolios.</span>
+                Forge Real Airbnb Portfolios.
               </motion.h1>
 
               <motion.p
@@ -231,7 +230,7 @@ export default function MarketingHome() {
                 transition={{ duration: 0.7 }}
                 className="mx-auto mb-10 max-w-3xl text-lg font-medium text-foreground/90 md:text-xl"
               >
-                A consultative platform for investors and busy professionals. We help you forge a real Airbnb portfolio — arbitrage deals for scale, purchase deals for equity and tax savings — then manage and build the units for you.
+                A hands-on platform for investors and busy professionals. We help you forge a real Airbnb portfolio — arbitrage deals for scale, purchase deals for equity and tax savings — then manage and build the units for you.
               </motion.p>
 
               <motion.div variants={heroFadeUp} transition={{ duration: 0.6 }} className="flex flex-col justify-center gap-4 sm:flex-row">
@@ -302,7 +301,7 @@ export default function MarketingHome() {
           <div className="section-container grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <motion.div {...sectionFadeUp}>
               <p className="mb-3 text-sm font-semibold uppercase text-primary">A real portfolio</p>
-              <h2 className="mb-5 text-foreground">A consultative build from first deal to scale.</h2>
+              <h2 className="mb-5 text-foreground">A guided build from first deal to scale.</h2>
               <p className="mb-8 text-text-secondary">
                 We sit down with investors and busy professionals, map goals, capital, and tax picture, then blend arbitrage and purchase deals into one compounding STR portfolio — and run it end to end.
               </p>
@@ -360,7 +359,7 @@ export default function MarketingHome() {
               <BadgeDollarSign className="mx-auto mb-5 h-10 w-10 text-primary" />
               <h2 className="mb-5 text-foreground">Apply to forge your Airbnb portfolio with us.</h2>
               <p className="mb-9 text-text-secondary">
-                We take on a limited number of investors and busy professionals each quarter so every portfolio gets consultative attention from sourcing through operations.
+                We take on a limited number of investors and busy professionals each quarter so every portfolio gets hands-on attention from sourcing through operations.
               </p>
               <Button asChild variant="cta" size="xl" className="group shadow-lg shadow-primary/20">
                 <Link to="/get-started">

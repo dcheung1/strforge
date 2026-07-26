@@ -6,7 +6,7 @@ const FOUNDER = {
   background:
     "Built and operated a 240-unit Airbnb portfolio combining arbitrage and purchase deals. STR Forge productizes his sourcing, negotiation, management, and buildout playbooks so investors and busy professionals can forge their own portfolio without assembling the machine from scratch.",
   positioning:
-    "STR Forge is a consultative Airbnb portfolio platform — arbitrage deals for cash flow and scale, purchase deals for equity and tax savings, with management and buildout handled end to end.",
+    "STR Forge is a founder-led Airbnb portfolio platform — arbitrage deals for cash flow and scale, purchase deals for equity and tax savings, with management and buildout handled end to end.",
   audience: "Investors and busy professionals who want a real Airbnb portfolio without operating it day to day.",
 };
 

@@ -16,7 +16,7 @@ const PRICING = {
     description: "Hands-on execution partnership with Derek Cheung's team — sourcing, management, and buildout across arbitrage and purchase deals.",
     tiers: [
       { name: "Launch Sprint", price: "Contact for quote", includes: "We help you launch your first units end-to-end" },
-      { name: "Scale Partner", price: "Contact for quote", includes: "Ongoing consultative operations for 10-50 unit portfolios" },
+      { name: "Scale Partner", price: "Contact for quote", includes: "Ongoing hands-on operations for 10-50 unit portfolios" },
     ],
   },
 };
