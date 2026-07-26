@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   BadgeDollarSign,
@@ -20,7 +20,6 @@ import {
   TrendingUp,
   Wallet,
 } from "lucide-react";
-import { useRef } from "react";
 import { Link } from "react-router-dom";
 
 const heroFadeUp = {
@@ -206,24 +205,16 @@ function DealRoomMockup() {
 }
 
 export default function MarketingHome() {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-  const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.97]);
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
       <main>
-        <section ref={heroRef} className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-20">
-          <div className="absolute inset-0 bg-grid-pattern opacity-40" />
+        <section className="relative overflow-hidden pt-28 pb-14 md:pt-36 md:pb-18">
+          <div className="absolute inset-0 bg-grid-pattern opacity-25" />
           <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
-          <motion.div className="section-container relative z-10 text-center" style={{ opacity: heroOpacity, scale: heroScale }}>
+          <motion.div className="section-container relative z-10 text-center">
             <motion.div initial="initial" animate="animate" variants={heroStagger}>
               <motion.div variants={heroFadeUp} transition={{ duration: 0.6 }} className="mb-6 flex justify-center">
                 <span className="inline-flex items-center gap-2 rounded-md border border-primary/30 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase text-primary">
@@ -238,13 +229,13 @@ export default function MarketingHome() {
                 className="mx-auto mb-6 max-w-5xl text-4xl font-bold leading-tight text-foreground md:text-5xl lg:text-7xl"
               >
                 STR Forge
-                <span className="block text-muted-foreground">builds Airbnb businesses around real deal flow.</span>
+                <span className="block text-foreground">builds Airbnb businesses around real deal flow.</span>
               </motion.h1>
 
               <motion.p
                 variants={heroFadeUp}
                 transition={{ duration: 0.7 }}
-                className="mx-auto mb-10 max-w-3xl text-lg text-text-secondary md:text-xl"
+                className="mx-auto mb-10 max-w-3xl text-lg font-medium text-foreground/90 md:text-xl"
               >
                 A hybrid platform for investors, operators, and strategic partners who want to start with arbitrage deals, scale through management and buildout, then graduate into purchase-backed STR ownership.
               </motion.p>

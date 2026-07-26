@@ -70,7 +70,7 @@ const GetStarted = () => {
     return (
       <div className="min-h-screen bg-background">
         <Header />
-        <main className="pt-32 pb-20 relative overflow-hidden">
+        <main className="relative overflow-hidden pt-28 pb-20">
           <motion.div
             className="absolute inset-0 pointer-events-none"
             initial={{ opacity: 0 }}
@@ -119,7 +119,7 @@ const GetStarted = () => {
 
       <main>
         {/* ═══════════ Hero ═══════════ */}
-        <section className="relative pt-32 pb-16 md:pt-44 md:pb-20 overflow-hidden">
+        <section className="relative overflow-hidden pt-24 pb-10 md:pt-32 md:pb-12">
           <motion.div
             className="absolute inset-0 pointer-events-none"
             initial={{ opacity: 0 }}
@@ -127,7 +127,7 @@ const GetStarted = () => {
             transition={{ duration: 2 }}
           >
             <motion.div
-              className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-primary/15 blur-[150px]"
+              className="absolute top-1/4 left-1/2 -translate-x-1/2 h-[520px] w-[520px] rounded-full bg-primary/10 blur-[150px]"
               animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.25, 0.15] }}
               transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             />
@@ -145,7 +145,7 @@ const GetStarted = () => {
               <motion.h1
                 variants={heroFadeUp}
                 transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-                className="text-3xl md:text-4xl font-semibold text-foreground mb-4"
+                className="mb-4 text-3xl font-semibold text-foreground md:text-4xl"
               >
                 Apply to work with STR Forge.
               </motion.h1>
@@ -153,7 +153,7 @@ const GetStarted = () => {
               <motion.p
                 variants={heroFadeUp}
                 transition={{ duration: 0.7 }}
-                className="text-text-secondary"
+                className="font-medium text-foreground/90"
               >
                 Tell us about your capital, operating background, and goals so we can route you into the right part of the STR Forge flywheel.
               </motion.p>
