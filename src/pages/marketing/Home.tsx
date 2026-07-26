@@ -169,10 +169,10 @@ function DealRoomMockup() {
           <p className="mb-4 text-xs uppercase text-muted-foreground">Flywheel economics</p>
           <div className="space-y-4">
             {[
-              ["Source", "Find underpriced STR supply"],
-              ["Operate", "Attach management and launch systems"],
-              ["Improve", "Design, furnish, repair, and optimize"],
-              ["Own", "Layer in purchase deals for equity and tax savings"],
+              ["Find", "Find underpriced STR supply"],
+              ["Build", "Design, furnish, repair, and optimize"],
+              ["Manage", "Attach management and launch systems"],
+              ["Scale", "Layer in purchase deals for equity and tax savings"],
             ].map(([label, copy], index) => (
               <motion.div
                 key={label}
