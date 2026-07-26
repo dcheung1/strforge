@@ -61,7 +61,7 @@ const GetStarted = () => {
     setIsSubmitted(true);
     toast({
       title: "We got it",
-      description: "We'll be in touch within 24 hours.",
+      description: "We'll be in touch within 24-48 hours.",
     });
   };
 
@@ -99,7 +99,7 @@ const GetStarted = () => {
               </motion.div>
               <h1 className="text-3xl font-semibold text-foreground mb-4">You're in.</h1>
               <p className="text-text-secondary mb-4">
-                We'll review your fit and get back to you within 24 hours with next steps.
+                We'll review your fit and get back to you within 24-48 hours with next steps.
               </p>
               <p className="text-sm text-muted-foreground">
                 Qualified applicants will be routed to deal flow, capital, operating, or partner conversations.
