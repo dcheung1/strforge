@@ -80,7 +80,7 @@ const investorOutcomes = [
   "A real portfolio strategy — arbitrage for scale, purchase for equity and tax savings",
   "Curated arbitrage and purchase deals matched to your capital, market, and timeline",
   "A management team already attached so units perform without your daily attention",
-  "One consultative relationship instead of a one-off deal search or generic marketplace",
+  "One consultative relationship across sourcing, launch, and operations",
 ];
 
 const dealRoomRows = [
@@ -223,7 +223,7 @@ export default function MarketingHome() {
                 className="mx-auto mb-6 max-w-5xl text-4xl font-bold leading-tight text-foreground md:text-5xl lg:text-7xl"
               >
                 STR Forge
-                <span className="block text-foreground">forges Airbnb portfolios, not one-off deals.</span>
+                <span className="block text-foreground">forges compounding Airbnb portfolios.</span>
               </motion.h1>
 
               <motion.p
@@ -301,8 +301,8 @@ export default function MarketingHome() {
         <section id="deal-flow" className="section-spacing bg-secondary/20">
           <div className="section-container grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <motion.div {...sectionFadeUp}>
-              <p className="mb-3 text-sm font-semibold uppercase text-primary">Portfolio, not one-off</p>
-              <h2 className="mb-5 text-foreground">A consultative build, not a deal search.</h2>
+              <p className="mb-3 text-sm font-semibold uppercase text-primary">A real portfolio</p>
+              <h2 className="mb-5 text-foreground">A consultative build from first deal to scale.</h2>
               <p className="mb-8 text-text-secondary">
                 We sit down with investors and busy professionals, map goals, capital, and tax picture, then blend arbitrage and purchase deals into one compounding STR portfolio — and run it end to end.
               </p>

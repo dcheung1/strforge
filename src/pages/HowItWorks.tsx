@@ -110,7 +110,7 @@ const HowItWorks = () => {
                 className="text-lg text-text-secondary leading-relaxed"
               >
                 Connect your accounts, let the AI learn your business, and start
-                making decisions based on real numbers instead of gut feelings.
+                making decisions backed by real numbers and clear operating signals.
               </motion.p>
             </motion.div>
           </motion.div>
