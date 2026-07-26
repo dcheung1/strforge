@@ -39,7 +39,7 @@ const GetStarted = () => {
     fullName: "",
     email: "",
     phone: "",
-    units: "",
+    capital: "",
     interest: "",
     currentChallenge: "",
   });
@@ -100,10 +100,10 @@ const GetStarted = () => {
               </motion.div>
               <h1 className="text-3xl font-semibold text-foreground mb-4">You're in.</h1>
               <p className="text-text-secondary mb-4">
-                We'll review your info and get back to you within 24 hours with next steps.
+                We'll review your fit and get back to you within 24 hours with next steps.
               </p>
               <p className="text-sm text-muted-foreground">
-                If you selected the Software tier, check your email for trial access.
+                Qualified applicants will be routed to deal flow, capital, operating, or partner conversations.
               </p>
             </motion.div>
           </div>
@@ -138,7 +138,7 @@ const GetStarted = () => {
               <motion.div variants={heroFadeUp} transition={{ duration: 0.6 }} className="flex justify-center mb-6">
                 <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-xs font-medium text-primary tracking-wide uppercase">
                   <Sparkles className="w-3.5 h-3.5" />
-                  Get Started
+                  Apply to Work With Us
                 </span>
               </motion.div>
 
@@ -147,7 +147,7 @@ const GetStarted = () => {
                 transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
                 className="text-3xl md:text-4xl font-semibold text-foreground mb-4"
               >
-                Let's figure out the right fit.
+                Apply to work with STR Forge.
               </motion.h1>
 
               <motion.p
@@ -155,8 +155,7 @@ const GetStarted = () => {
                 transition={{ duration: 0.7 }}
                 className="text-text-secondary"
               >
-                Tell us about your portfolio and we'll recommend the best tier for you.
-                Software trial starts immediately. Service tiers begin after a quick call.
+                Tell us about your capital, operating background, and goals so we can route you into the right part of the STR Forge flywheel.
               </motion.p>
             </motion.div>
           </div>
@@ -189,15 +188,15 @@ const GetStarted = () => {
                       <Input id="phone" type="tel" value={formData.phone} onChange={(e) => handleInputChange("phone", e.target.value)} placeholder="(555) 123-4567" />
                     </div>
                     <div className="space-y-2">
-                      <Label>How many units do you operate?</Label>
-                      <Select value={formData.units} onValueChange={(v) => handleInputChange("units", v)}>
-                        <SelectTrigger><SelectValue placeholder="Select" /></SelectTrigger>
+                      <Label>Available capital or buying power</Label>
+                      <Select value={formData.capital} onValueChange={(v) => handleInputChange("capital", v)}>
+                        <SelectTrigger><SelectValue placeholder="Select range" /></SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="0">Getting started (0)</SelectItem>
-                          <SelectItem value="1-5">1-5 units</SelectItem>
-                          <SelectItem value="6-15">6-15 units</SelectItem>
-                          <SelectItem value="16-30">16-30 units</SelectItem>
-                          <SelectItem value="30+">30+ units</SelectItem>
+                          <SelectItem value="under-100k">Under $100K</SelectItem>
+                          <SelectItem value="100k-250k">$100K-$250K</SelectItem>
+                          <SelectItem value="250k-500k">$250K-$500K</SelectItem>
+                          <SelectItem value="500k-1m">$500K-$1M</SelectItem>
+                          <SelectItem value="1m-plus">$1M+</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -215,26 +214,26 @@ const GetStarted = () => {
                   <div className="space-y-2">
                     <Label>I'm most interested in:</Label>
                     <Select value={formData.interest} onValueChange={(v) => handleInputChange("interest", v)}>
-                      <SelectTrigger><SelectValue placeholder="Select a tier" /></SelectTrigger>
+                      <SelectTrigger><SelectValue placeholder="Select a pathway" /></SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="software">Software ($97-197/mo)</SelectItem>
-                        <SelectItem value="revenue">Revenue Management (2.5%)</SelectItem>
-                        <SelectItem value="remote-10">Remote Management (10%)</SelectItem>
-                        <SelectItem value="full-15">Full Management (15%)</SelectItem>
-                        <SelectItem value="not-sure">Not sure yet</SelectItem>
+                        <SelectItem value="investor">Investing capital into STR opportunities</SelectItem>
+                        <SelectItem value="arbitrage">Buying or operating arbitrage deals</SelectItem>
+                        <SelectItem value="purchase">Purchase-backed Airbnb opportunities</SelectItem>
+                        <SelectItem value="management">Management or buildout support</SelectItem>
+                        <SelectItem value="partner">Strategic partnership</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="currentChallenge">
-                      What's the biggest headache in your business right now? (optional)
+                      What should we know about your goals, capital, timeline, or STR experience? (optional)
                     </Label>
                     <Textarea
                       id="currentChallenge"
                       value={formData.currentChallenge}
                       onChange={(e) => handleInputChange("currentChallenge", e.target.value)}
-                      placeholder="e.g., expense tracking is a mess, pricing is all over the place, I need help with guest communication..."
+                      placeholder="e.g., I want semi-passive STR exposure, I have capital to deploy this quarter, I operate units already, I want tax-aware ownership conversations..."
                       rows={4}
                     />
                   </div>
@@ -250,12 +249,12 @@ const GetStarted = () => {
               >
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} className="inline-block">
                   <Button type="submit" variant="cta" size="xl" className="group shadow-lg shadow-primary/20">
-                    Get Started
+                    Submit Application
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </motion.div>
                 <p className="text-sm text-muted-foreground mt-4">
-                  Software tier: instant trial access. Service tiers: we'll schedule a quick call.
+                  We prioritize qualified investors first, then operators and strategic partners who strengthen the flywheel.
                 </p>
               </motion.div>
             </form>

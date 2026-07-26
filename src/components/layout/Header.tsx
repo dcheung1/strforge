@@ -10,11 +10,9 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   
   const navLinks = [
-    { to: "/", label: "Home" },
-    { to: "/tools", label: "Tools" },
-    { to: "/how-it-works", label: "How It Works" },
-    { to: "/pricing", label: "Pricing" },
-    { to: "/resources", label: "Resources" },
+    { to: "/#deal-flow", label: "Deal Flow" },
+    { to: "/#flywheel", label: "Flywheel" },
+    { to: "/#capital", label: "Capital" },
   ];
   
   return (
@@ -36,7 +34,7 @@ const Header = () => {
                 key={link.to}
                 to={link.to} 
                 className={`text-sm font-medium transition-colors duration-200 ${
-                  location.pathname === link.to 
+                  location.pathname + location.hash === link.to 
                     ? "text-foreground" 
                     : "text-muted-foreground hover:text-foreground"
                 }`}
@@ -63,7 +61,7 @@ const Header = () => {
                       to={link.to} 
                       onClick={() => setIsOpen(false)}
                       className={`text-lg font-medium transition-colors ${
-                        location.pathname === link.to 
+                        location.pathname + location.hash === link.to 
                           ? "text-foreground" 
                           : "text-muted-foreground hover:text-foreground"
                       }`}
@@ -74,7 +72,7 @@ const Header = () => {
                   <div className="pt-4 border-t border-border">
                     <Link to="/get-started" onClick={() => setIsOpen(false)}>
                       <Button variant="cta" className="w-full">
-                        Get Started
+                        Apply to Work With Us
                       </Button>
                     </Link>
                   </div>
@@ -85,14 +83,14 @@ const Header = () => {
             {/* Desktop CTA */}
             <Link to="/get-started" className="hidden md:block">
               <Button variant="cta" size="default">
-                Get Started
+                Apply
               </Button>
             </Link>
             
             {/* Mobile CTA */}
             <Link to="/get-started" className="md:hidden">
               <Button variant="cta" size="sm">
-                Start
+                Apply
               </Button>
             </Link>
           </div>
