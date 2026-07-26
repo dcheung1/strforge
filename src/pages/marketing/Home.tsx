@@ -1,431 +1,379 @@
-import { InfiniteMovingCards } from "@/components/aceternity/InfiniteMovingCards";
-import AnimatedToolsGrid from "@/components/landing/AnimatedToolsGrid";
 import { Button } from "@/components/ui/button";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Link } from "react-router-dom";
-import { useRef } from "react";
-import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import HeroDashboardMockup from "@/components/landing/HeroDashboardMockup";
-import AnimatedStatsSection from "@/components/landing/AnimatedStatsSection";
+import Header from "@/components/layout/Header";
+import { motion } from "framer-motion";
 import {
-  ArrowRight, Search, DollarSign, Phone, Handshake,
-  Brain, Zap, Hammer, Settings, Check, Sparkles,
+  ArrowRight,
+  BadgeDollarSign,
+  Building2,
+  ChartNoAxesCombined,
+  CheckCircle2,
+  ClipboardCheck,
+  Factory,
+  Hammer,
+  Handshake,
+  Home,
+  KeyRound,
+  Landmark,
+  Search,
+  ShieldCheck,
+  TrendingUp,
+  Wallet,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
-/* ─── Animation variants ─── */
 const heroFadeUp = {
-  initial: { opacity: 0, y: 40 },
+  initial: { opacity: 0, y: 36 },
   animate: { opacity: 1, y: 0 },
 };
 
 const heroStagger = {
   initial: {},
-  animate: { transition: { staggerChildren: 0.2, delayChildren: 0.3 } },
+  animate: { transition: { staggerChildren: 0.14, delayChildren: 0.18 } },
 };
 
 const sectionFadeUp = {
-  initial: { opacity: 0, y: 60 },
+  initial: { opacity: 0, y: 48 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-100px" },
-  transition: { duration: 0.8, ease: [0.25, 0.4, 0.25, 1] as [number, number, number, number] },
+  viewport: { once: true, margin: "-90px" },
+  transition: { duration: 0.7, ease: [0.25, 0.4, 0.25, 1] as [number, number, number, number] },
 };
 
 const cardVariants = {
-  initial: { opacity: 0, y: 40, scale: 0.95 },
-  whileInView: { opacity: 1, y: 0, scale: 1 },
-  viewport: { once: true, margin: "-60px" },
+  initial: { opacity: 0, y: 34 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-70px" },
 };
 
-/* ─── Data ─── */
-const testimonials = [
+const flywheel = [
   {
-    quote: "STR Forge saved me 20 hours a month on expense tracking alone. The AI knows my allocation patterns better than I do.",
-    name: "Sarah Chen",
-    title: "12 units, Austin TX",
+    title: "Find BNB",
+    eyebrow: "Deal origination",
+    description:
+      "Curated arbitrage and acquisition opportunities screened for demand, operator fit, and clear upside before they reach the room.",
+    icon: Search,
   },
   {
-    quote: "The Negotiator closed 3 deals in 2 weeks. I hate cold calling—this AI does it for me.",
-    name: "Marcus Rodriguez",
-    title: "8 units, Denver CO",
+    title: "Managed BNB",
+    eyebrow: "Operating backbone",
+    description:
+      "A management layer for owners and investors who want revenue, guest experience, and unit-level performance handled with discipline.",
+    icon: ClipboardCheck,
   },
   {
-    quote: "I went from spreadsheet chaos to knowing exactly which units are profitable. Game changer.",
-    name: "Jennifer Park",
-    title: "24 units, Dallas TX",
+    title: "Build BNB",
+    eyebrow: "Value creation",
+    description:
+      "Design, furnishing, repairs, vendor coordination, and launch support built to turn ordinary supply into durable STR assets.",
+    icon: Hammer,
   },
   {
-    quote: "Derek's AI caught a $2K expense leak I would have missed. Paid for itself in the first month.",
-    name: "Kevin Thompson",
-    title: "18 units, Nashville TN",
-  },
-];
-
-const toolItems = [
-  {
-    title: "DealForge",
-    description: "Analyze any rental arbitrage deal instantly with proprietary scoring. Chrome extension evaluates properties while you browse.",
-    icons: [Search, DollarSign],
-    label: "Deal Analysis",
-  },
-  {
-    title: "The Negotiator",
-    description: "AI makes calls, sends texts, schedules tours, and follows up automatically. Nobody else has this.",
-    icons: [Phone, Handshake],
-    label: "AI Outreach",
-  },
-  {
-    title: "Jarvis",
-    description: "An agent that monitors your business 24/7. Learns expense allocation, flags issues, automates guest comms.",
-    icons: [Brain, Zap],
-    label: "Operations AI",
-  },
-  {
-    title: "The Foundry",
-    description: "AI website builder creates your direct booking site in minutes. Plus business setup automation.",
-    icons: [Hammer, Settings],
-    label: "Launch Tools",
+    title: "Capital BNB",
+    eyebrow: "Portfolio expansion",
+    description:
+      "The capital pathway for larger checks: tax-aware strategy, purchase deal flow, and a route toward scaled hospitality ownership.",
+    icon: Landmark,
   },
 ];
 
-const serviceTiers = [
-  "All 4 tools (DealForge, Negotiator, Jarvis, Foundry)",
-  "Revenue optimization (2.5% of revenue)",
-  "Remote management (10-15% of revenue)",
+const investorOutcomes = [
+  "Access deal flow without building the sourcing machine yourself",
+  "Participate in an STR business with an operating team already attached",
+  "Move from arbitrage cash flow into ownership opportunities over time",
+  "Use hospitality assets as a serious alternative to another passive allocation",
 ];
 
-/* ─── Animated Tool Card Header ─── */
-const ToolCardHeader = ({ icons }: { icons: typeof Search[] }) => (
-  <motion.div
-    className="flex items-center gap-3 p-6 rounded-xl bg-secondary/30 border border-border/30 min-h-[6rem] relative overflow-hidden group"
-    whileHover={{ scale: 1.02 }}
-    transition={{ type: "spring", stiffness: 300 }}
-  >
-    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-    {icons.map((Icon, i) => (
-      <motion.div
-        key={i}
-        initial={{ rotate: -10, opacity: 0 }}
-        whileInView={{ rotate: 0, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: i * 0.15 + 0.3, duration: 0.5 }}
-      >
-        <Icon className="w-8 h-8 text-primary relative z-10" />
-      </motion.div>
-    ))}
-  </motion.div>
-);
+const dealRoomRows = [
+  { market: "Nashville", type: "Arbitrage", profile: "Launch-ready", status: "Screened" },
+  { market: "Scottsdale", type: "Purchase", profile: "Design upside", status: "Reviewing" },
+  { market: "Tampa", type: "Arbitrage", profile: "Operator matched", status: "Available" },
+];
+
+const pathways = [
+  {
+    title: "Capital partner",
+    description:
+      "For investors with meaningful capital who want STR exposure, a clear operator, and a semi-passive entry into the asset class.",
+    icon: Wallet,
+  },
+  {
+    title: "Operator partner",
+    description:
+      "For new or scaling operators who need deal flow, launch support, management infrastructure, or a stronger acquisition pipeline.",
+    icon: KeyRound,
+  },
+  {
+    title: "Strategic supply partner",
+    description:
+      "For owners, vendors, and builders who can help STR Forge control more of the short-term rental value chain.",
+    icon: Factory,
+  },
+];
+
+function DealRoomMockup() {
+  return (
+    <motion.div
+      variants={heroFadeUp}
+      transition={{ duration: 0.8, delay: 0.15, ease: [0.25, 0.4, 0.25, 1] }}
+      className="relative mx-auto mt-14 max-w-5xl overflow-hidden rounded-lg border border-border bg-card shadow-lg"
+    >
+      <div className="flex items-center justify-between border-b border-border bg-secondary/40 px-4 py-3 md:px-6">
+        <div className="flex items-center gap-3">
+          <div className="flex h-9 w-9 items-center justify-center rounded-md border border-primary/30 bg-primary/10">
+            <Building2 className="h-4 w-4 text-primary" />
+          </div>
+          <div>
+            <p className="text-sm font-semibold text-foreground">STR Forge Deal Room</p>
+            <p className="text-xs text-muted-foreground">Investor pipeline snapshot</p>
+          </div>
+        </div>
+        <div className="hidden items-center gap-2 rounded-md border border-border bg-background px-3 py-1.5 text-xs text-muted-foreground md:flex">
+          <ShieldCheck className="h-3.5 w-3.5 text-primary" />
+          Qualified access
+        </div>
+      </div>
+
+      <div className="grid gap-0 md:grid-cols-[1.15fr_0.85fr]">
+        <div className="border-b border-border p-4 md:border-b-0 md:border-r md:p-6">
+          <div className="mb-5 flex items-center justify-between gap-4">
+            <div>
+              <p className="text-xs uppercase text-muted-foreground">Current pipeline</p>
+              <p className="mt-1 text-2xl font-semibold text-foreground">17 screened opportunities</p>
+            </div>
+            <div className="rounded-md border border-primary/30 bg-primary/10 px-3 py-2 text-right">
+              <p className="text-xs text-muted-foreground">Next allocation</p>
+              <p className="text-sm font-semibold text-primary">Open now</p>
+            </div>
+          </div>
+
+          <div className="space-y-3">
+            {dealRoomRows.map((deal, index) => (
+              <motion.div
+                key={`${deal.market}-${deal.type}`}
+                initial={{ opacity: 0, x: -14 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.35 + index * 0.08, duration: 0.35 }}
+                className="grid grid-cols-[1fr_auto] gap-4 rounded-md border border-border bg-secondary/30 p-3 md:grid-cols-[1fr_0.8fr_0.8fr_auto] md:items-center"
+              >
+                <div>
+                  <p className="text-sm font-medium text-foreground">{deal.market}</p>
+                  <p className="text-xs text-muted-foreground">{deal.type}</p>
+                </div>
+                <p className="hidden text-sm text-text-secondary md:block">{deal.profile}</p>
+                <div className="hidden items-center gap-2 text-sm text-text-secondary md:flex">
+                  <TrendingUp className="h-3.5 w-3.5 text-primary" />
+                  Upside mapped
+                </div>
+                <span className="rounded-md border border-border bg-background px-2.5 py-1 text-xs text-foreground">
+                  {deal.status}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        <div className="p-4 md:p-6">
+          <p className="mb-4 text-xs uppercase text-muted-foreground">Flywheel economics</p>
+          <div className="space-y-4">
+            {[
+              ["Source", "Find underpriced STR supply"],
+              ["Operate", "Attach management and launch systems"],
+              ["Improve", "Design, furnish, repair, and optimize"],
+              ["Own", "Graduate toward purchase-backed portfolios"],
+            ].map(([label, copy], index) => (
+              <motion.div
+                key={label}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.42 + index * 0.08, duration: 0.35 }}
+                className="flex gap-3"
+              >
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-primary/30 bg-primary/10 text-sm font-semibold text-primary">
+                  {index + 1}
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-foreground">{label}</p>
+                  <p className="text-xs text-muted-foreground">{copy}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function MarketingHome() {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-  const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
       <main>
-        {/* ═══════════ Hero ═══════════ */}
-        <section ref={heroRef} className="relative pt-32 pb-24 md:pt-44 md:pb-32 overflow-hidden">
-          {/* Animated ambient glows */}
-          <motion.div
-            className="absolute inset-0 pointer-events-none"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 2 }}
-          >
-            <motion.div
-              className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-primary/20 blur-[150px]"
-              animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.3, 0.15] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <motion.div
-              className="absolute top-1/3 left-1/4 w-[300px] h-[300px] rounded-full bg-primary/10 blur-[100px]"
-              animate={{ x: [0, 50, 0], y: [0, -30, 0] }}
-              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-            />
-          </motion.div>
+        <section className="relative overflow-hidden pt-28 pb-14 md:pt-36 md:pb-18">
+          <div className="absolute inset-0 bg-grid-pattern opacity-25" />
+          <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
-          <motion.div
-            className="section-container relative z-10 text-center"
-            style={{ opacity: heroOpacity, scale: heroScale }}
-          >
+          <motion.div className="section-container relative z-10 text-center">
             <motion.div initial="initial" animate="animate" variants={heroStagger}>
+              <motion.div variants={heroFadeUp} transition={{ duration: 0.6 }} className="mb-6 flex justify-center">
+                <span className="inline-flex items-center gap-2 rounded-md border border-primary/30 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase text-primary">
+                  <Home className="h-3.5 w-3.5" />
+                  Airbnb deal flow, operations, and ownership
+                </span>
+              </motion.div>
 
               <motion.h1
                 variants={heroFadeUp}
                 transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-                className="text-foreground leading-[1.1] text-4xl md:text-5xl lg:text-7xl mb-6 font-bold"
+                className="mx-auto mb-6 max-w-5xl text-4xl font-bold leading-tight text-foreground md:text-5xl lg:text-7xl"
               >
-                Your{" "}
-                <span className="bg-gradient-to-r from-primary to-primary-hover bg-clip-text text-transparent">
-                  AI Operating Partner
-                </span>
-                <br />
-                <span className="text-muted-foreground font-semibold">
-                  to Start and Scale your entire Airbnb business.
-                </span>
+                STR Forge
+                <span className="block text-foreground">builds Airbnb businesses around real deal flow.</span>
               </motion.h1>
 
               <motion.p
                 variants={heroFadeUp}
                 transition={{ duration: 0.7 }}
-                className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-12"
+                className="mx-auto mb-10 max-w-3xl text-lg font-medium text-foreground/90 md:text-xl"
               >
-                Find &amp; analyze deals, cold call and negotiate, launch listings, and automate operations and profit tracking. All powered by AI agents.
+                A hybrid platform for investors, operators, and strategic partners who want to start with arbitrage deals, scale through management and buildout, then graduate into purchase-backed STR ownership.
               </motion.p>
 
-              <motion.div
-                variants={heroFadeUp}
-                transition={{ duration: 0.6 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center"
-              >
-                <Link to="/get-started">
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-                    <Button variant="cta" size="xl" className="group w-full sm:w-auto shadow-lg shadow-primary/20">
-                      Start Free Trial
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                  </motion.div>
-                </Link>
-                <Link to="/get-started">
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-                    <Button variant="ctaOutline" size="xl" className="w-full sm:w-auto">
-                      Book a Demo
-                    </Button>
-                  </motion.div>
-                </Link>
+              <motion.div variants={heroFadeUp} transition={{ duration: 0.6 }} className="flex flex-col justify-center gap-4 sm:flex-row">
+                <Button asChild variant="cta" size="xl" className="group shadow-lg shadow-primary/20">
+                  <Link to="/get-started">
+                    Apply to work with us
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </Button>
+                <Button asChild variant="ctaOutline" size="xl">
+                  <a href="#flywheel">See the flywheel</a>
+                </Button>
               </motion.div>
             </motion.div>
 
-            {/* Dashboard mockup */}
-            <HeroDashboardMockup />
+            <DealRoomMockup />
           </motion.div>
         </section>
 
-        {/* ═══════════ Social Proof ═══════════ */}
-        <motion.section
-          className="py-8 relative"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-        >
-          <div className="section-container flex items-center justify-center gap-3">
-            <span className="text-sm text-muted-foreground">Trusted by operators managing</span>
-            <motion.span
-              className="text-sm font-semibold text-foreground"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              5,000+ units
-            </motion.span>
+        <section className="py-8">
+          <div className="section-container grid grid-cols-2 gap-4 md:grid-cols-4">
+            {[
+              ["200+", "units operated"],
+              ["$15M+", "revenue generated"],
+              ["8+", "years in STRs"],
+              ["3", "entry points"],
+            ].map(([value, label]) => (
+              <div key={label} className="border-l border-border pl-4">
+                <p className="text-2xl font-semibold text-foreground md:text-3xl">{value}</p>
+                <p className="text-sm text-muted-foreground">{label}</p>
+              </div>
+            ))}
           </div>
-        </motion.section>
+        </section>
 
-        <AnimatedToolsGrid />
+        <section id="flywheel" className="section-spacing relative overflow-hidden">
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+          <div className="section-container">
+            <motion.div {...sectionFadeUp} className="mx-auto mb-14 max-w-3xl text-center">
+              <p className="mb-3 text-sm font-semibold uppercase text-primary">The STR Forge flywheel</p>
+              <h2 className="mb-4 text-foreground">One platform for the whole Airbnb supply chain.</h2>
+              <p className="text-text-secondary">
+                STR Forge is moving beyond tools into the actual assets, services, and operating infrastructure behind short-term rental growth.
+              </p>
+            </motion.div>
 
-        {/* ═══════════ Choose Your Path ═══════════ */}
-        <section className="section-spacing relative overflow-hidden">
-          {/* Gradient divider */}
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-          {/* Section glow */}
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/5 blur-[120px]" />
-          </div>
-
-          <div className="section-container relative z-10">
-            <motion.h2
-              {...sectionFadeUp}
-              className="text-foreground text-center mb-14"
-            >
-              Choose Your Path
-            </motion.h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {/* Software DIY */}
-              <motion.div
-                {...cardVariants}
-                transition={{ duration: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className="card-elevated p-6 md:p-8 flex flex-col hover:border-border/80 transition-colors duration-300"
-              >
-                <h3 className="text-xl font-semibold text-foreground mb-2">Software (DIY)</h3>
-                <p className="text-sm text-muted-foreground italic mb-6">
-                  "I want the tools, I'll run my business myself"
-                </p>
-                <ul className="space-y-3 mb-6 flex-1">
-                  {[
-                    "All 4 tools (DealForge, Negotiator, Jarvis, Foundry)",
-                    "Resource library + Discord community",
-                    "14-day free trial",
-                  ].map((f, i) => (
-                    <motion.li
-                      key={i}
-                      className="text-sm text-text-secondary flex items-start gap-2"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.1 + 0.3, duration: 0.4 }}
-                    >
-                      <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      {f}
-                    </motion.li>
-                  ))}
-                </ul>
-                <p className="text-2xl font-semibold text-foreground mb-4">$97-197/mo</p>
-                <Link to="/get-started">
-                  <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-                    <Button variant="cta" className="w-full group">
-                      Start Free Trial
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                  </motion.div>
-                </Link>
-              </motion.div>
-
-              {/* Services */}
-              <motion.div
-                {...cardVariants}
-                transition={{ duration: 0.7, delay: 0.15, ease: [0.25, 0.4, 0.25, 1] }}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className="card-elevated p-6 md:p-8 border-primary/40 ring-1 ring-primary/20 flex flex-col relative overflow-hidden"
-              >
-                {/* Glow effect on featured card */}
-                <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/10 rounded-full blur-[60px] pointer-events-none" />
-
-                <div className="flex items-center gap-2 mb-2 relative z-10">
-                  <h3 className="text-xl font-semibold text-foreground">Services (Done-With-You)</h3>
-                  <motion.span
-                    className="text-[10px] font-semibold uppercase tracking-wider bg-primary/20 text-primary px-2 py-0.5 rounded"
-                    animate={{ opacity: [1, 0.6, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    Popular
-                  </motion.span>
-                </div>
-                <p className="text-sm text-muted-foreground italic mb-6">
-                  "Use the tools FOR me, maximize my profit"
-                </p>
-                <ul className="space-y-3 mb-6 flex-1">
-                  {serviceTiers.map((t, i) => (
-                    <motion.li
-                      key={i}
-                      className="text-sm text-text-secondary flex items-start gap-2"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.1 + 0.4, duration: 0.4 }}
-                    >
-                      <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      {t}
-                    </motion.li>
-                  ))}
-                </ul>
-                <p className="text-2xl font-semibold text-foreground mb-4">2.5-15% of revenue</p>
-                <Link to="/get-started">
-                  <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-                    <Button variant="cta" className="w-full group">
-                      Book a Demo
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                  </motion.div>
-                </Link>
-              </motion.div>
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+              {flywheel.map((item, index) => (
+                <motion.article
+                  key={item.title}
+                  {...cardVariants}
+                  transition={{ duration: 0.6, delay: index * 0.08, ease: [0.25, 0.4, 0.25, 1] }}
+                  className="card-elevated p-6"
+                >
+                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-md border border-primary/30 bg-primary/10">
+                    <item.icon className="h-5 w-5 text-primary" />
+                  </div>
+                  <p className="mb-2 text-xs font-semibold uppercase text-primary">{item.eyebrow}</p>
+                  <h3 className="mb-3 text-xl font-semibold text-foreground">{item.title}</h3>
+                  <p className="text-sm text-text-secondary">{item.description}</p>
+                </motion.article>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* ═══════════ Testimonials ═══════════ */}
-        <section className="section-spacing relative">
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-          <div className="section-container text-center mb-10">
-            <motion.h2 {...sectionFadeUp} className="text-foreground mb-4">
-              Built by an operator who's been there
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-text-secondary max-w-xl mx-auto"
-            >
-              Built from 8 years experience with $15M generated and 200+ units operated
-            </motion.p>
+        <section id="deal-flow" className="section-spacing bg-secondary/20">
+          <div className="section-container grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+            <motion.div {...sectionFadeUp}>
+              <p className="mb-3 text-sm font-semibold uppercase text-primary">Investor-first positioning</p>
+              <h2 className="mb-5 text-foreground">Built for capital that wants more than another passive fund.</h2>
+              <p className="mb-8 text-text-secondary">
+                The first website version should speak directly to high-capital investors who want income, tax-aware planning conversations, and a semi-passive STR business without assembling the entire machine from scratch.
+              </p>
+              <Button asChild variant="cta" size="lg" className="group">
+                <Link to="/get-started">
+                  Apply for access
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
+            </motion.div>
+
+            <motion.div {...cardVariants} transition={{ duration: 0.7 }} className="grid gap-3">
+              {investorOutcomes.map((outcome) => (
+                <div key={outcome} className="flex gap-3 rounded-md border border-border bg-card p-4">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                  <p className="text-sm text-text-secondary">{outcome}</p>
+                </div>
+              ))}
+            </motion.div>
           </div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.4 }}
-          >
-            <InfiniteMovingCards items={testimonials} direction="left" speed="slow" />
-          </motion.div>
         </section>
 
-        {/* ═══════════ Animated Stats ═══════════ */}
-        <AnimatedStatsSection />
+        <section id="capital" className="section-spacing relative overflow-hidden">
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+          <div className="section-container">
+            <motion.div {...sectionFadeUp} className="mx-auto mb-14 max-w-3xl text-center">
+              <p className="mb-3 text-sm font-semibold uppercase text-primary">Hybrid offer structure</p>
+              <h2 className="mb-4 text-foreground">STR Forge stays the parent platform. Each BNB vertical has a job.</h2>
+              <p className="text-text-secondary">
+                The brand can flex from deal marketplace to management company to buildout partner while still feeling like one compounding ecosystem.
+              </p>
+            </motion.div>
 
-        {/* ═══════════ Final CTA ═══════════ */}
-        <section className="relative section-spacing overflow-hidden">
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-          {/* Animated glow */}
-          <motion.div
-            className="absolute inset-0 pointer-events-none"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5 }}
-          >
-            <motion.div
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-primary/10 blur-[120px]"
-              animate={{ scale: [1, 1.15, 1] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            />
-          </motion.div>
+            <div className="grid gap-5 md:grid-cols-3">
+              {pathways.map((path, index) => (
+                <motion.article
+                  key={path.title}
+                  {...cardVariants}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="card-elevated p-6"
+                >
+                  <path.icon className="mb-5 h-8 w-8 text-primary" />
+                  <h3 className="mb-3 text-xl font-semibold text-foreground">{path.title}</h3>
+                  <p className="text-sm text-text-secondary">{path.description}</p>
+                </motion.article>
+              ))}
+            </div>
+          </div>
+        </section>
 
-          <div className="section-container relative z-10 text-center">
-            <motion.h2 {...sectionFadeUp} className="text-foreground mb-4">
-              Start with software. Scale to full management.
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-text-secondary max-w-lg mx-auto mb-10"
-            >
-              Most operators start with our AI tools and upgrade to remote management once they see the results. No risk, no upfront cost.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
-              <Link to="/get-started">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-                  <Button variant="cta" size="xl" className="group w-full sm:w-auto shadow-lg shadow-primary/20">
-                    Start 14-Day Free Trial
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </motion.div>
-              </Link>
-              <Link to="/get-started">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-                  <Button variant="ctaOutline" size="xl" className="w-full sm:w-auto">
-                    Book a Demo Call
-                  </Button>
-                </motion.div>
-              </Link>
+        <section className="relative overflow-hidden py-20 md:py-28">
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+          <div className="section-container text-center">
+            <motion.div {...sectionFadeUp} className="mx-auto max-w-3xl">
+              <BadgeDollarSign className="mx-auto mb-5 h-10 w-10 text-primary" />
+              <h2 className="mb-5 text-foreground">Apply to see if your capital, goals, or operating skill fit the current pipeline.</h2>
+              <p className="mb-9 text-text-secondary">
+                STR Forge is prioritizing qualified investors first, while still creating clear paths for operators and strategic partners who strengthen the flywheel.
+              </p>
+              <Button asChild variant="cta" size="xl" className="group shadow-lg shadow-primary/20">
+                <Link to="/get-started">
+                  Apply to work with us
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
             </motion.div>
           </div>
         </section>

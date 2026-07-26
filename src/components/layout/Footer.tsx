@@ -23,22 +23,22 @@ const Footer = () => {
               Home
             </Link>
             <Link 
-              to="/how-it-works" 
+              to="/#flywheel" 
               className="text-sm text-muted-foreground hover:text-foreground transition-colors text-center sm:text-left py-2 sm:py-0"
             >
-              How It Works
+              Flywheel
             </Link>
             <Link 
-              to="/pricing" 
+              to="/get-started" 
               className="text-sm text-muted-foreground hover:text-foreground transition-colors text-center sm:text-left py-2 sm:py-0"
             >
-              Pricing
+              Apply
             </Link>
             <Link 
               to="/remote-management" 
               className="text-sm text-muted-foreground hover:text-foreground transition-colors text-center sm:text-left py-2 sm:py-0"
             >
-              Remote Management
+              Managed BNB
             </Link>
             <Link 
               to="/resources" 
@@ -54,7 +54,7 @@ const Footer = () => {
         
         <div className="flex flex-col items-center gap-4 text-sm text-muted-foreground text-center">
           <p>&copy; {new Date().getFullYear()} STR Forge. All rights reserved.</p>
-          <p className="text-xs md:text-sm">Your AI operating partner for Airbnb businesses.</p>
+          <p className="text-xs md:text-sm">Airbnb deal flow, operations, and ownership infrastructure.</p>
         </div>
       </div>
     </footer>
