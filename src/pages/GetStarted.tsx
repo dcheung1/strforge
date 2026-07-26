@@ -166,17 +166,17 @@ const GetStarted = () => {
                     <div className="grid md:grid-cols-2 gap-5">
                       <div className="space-y-2">
                         <Label htmlFor="fullName">Full name *</Label>
-                        <Input id="fullName" value={formData.fullName} onChange={(e) => handleInputChange("fullName", e.target.value)} required />
+                        <Input id="fullName" value={formData.fullName} onChange={(e) => handleInputChange("fullName", e.target.value)} required placeholder="" />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="email">Email *</Label>
-                        <Input id="email" type="email" value={formData.email} onChange={(e) => handleInputChange("email", e.target.value)} required />
+                        <Input id="email" type="email" value={formData.email} onChange={(e) => handleInputChange("email", e.target.value)} required placeholder="" />
                       </div>
                     </div>
                     <div className="grid md:grid-cols-2 gap-5">
                       <div className="space-y-2">
                         <Label htmlFor="phone">Phone (optional)</Label>
-                        <Input id="phone" type="tel" value={formData.phone} onChange={(e) => handleInputChange("phone", e.target.value)} />
+                        <Input id="phone" type="tel" value={formData.phone} onChange={(e) => handleInputChange("phone", e.target.value)} placeholder="" />
                       </div>
                       <div className="space-y-2">
                         <Label>Capital to deploy</Label>
