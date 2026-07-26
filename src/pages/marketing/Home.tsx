@@ -53,13 +53,6 @@ const flywheel = [
     icon: Search,
   },
   {
-    title: "Manage BNB",
-    eyebrow: "Operating backbone",
-    description:
-      "A hands-off management layer for investors and busy professionals who want revenue, guest experience, and unit performance handled with discipline.",
-    icon: ClipboardCheck,
-  },
-  {
     title: "Build BNB",
     eyebrow: "Value creation",
     description:
@@ -67,7 +60,14 @@ const flywheel = [
     icon: Hammer,
   },
   {
-    title: "Capital BNB",
+    title: "Manage BNB",
+    eyebrow: "Operating backbone",
+    description:
+      "A hands-off management layer for investors and busy professionals who want revenue, guest experience, and unit performance handled with discipline.",
+    icon: ClipboardCheck,
+  },
+  {
+    title: "Scale BNB",
     eyebrow: "Portfolio expansion",
     description:
       "Tax-aware strategy and purchase deal flow for investors ready to convert arbitrage cash flow into long-term equity and scaled ownership.",
