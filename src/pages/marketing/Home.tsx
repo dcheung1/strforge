@@ -223,7 +223,7 @@ export default function MarketingHome() {
                 className="mx-auto mb-6 max-w-5xl text-4xl font-bold leading-tight text-foreground md:text-5xl lg:text-7xl"
               >
                 STR Forge
-                <span className="block text-foreground">forges compounding Airbnb portfolios.</span>
+                <span className="block text-foreground">forge real Airbnb portfolios.</span>
               </motion.h1>
 
               <motion.p
