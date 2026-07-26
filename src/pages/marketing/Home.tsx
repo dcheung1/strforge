@@ -50,37 +50,37 @@ const flywheel = [
     title: "Find BNB",
     eyebrow: "Deal origination",
     description:
-      "Curated arbitrage and acquisition opportunities screened for demand, operator fit, and clear upside before they reach the room.",
+      "Curated arbitrage and purchase deals screened for demand, cash flow, and clear upside — the sourcing engine behind every portfolio we help build.",
     icon: Search,
   },
   {
-    title: "Managed BNB",
+    title: "Manage BNB",
     eyebrow: "Operating backbone",
     description:
-      "A management layer for owners and investors who want revenue, guest experience, and unit-level performance handled with discipline.",
+      "A hands-off management layer for investors and busy professionals who want revenue, guest experience, and unit performance handled with discipline.",
     icon: ClipboardCheck,
   },
   {
     title: "Build BNB",
     eyebrow: "Value creation",
     description:
-      "Design, furnishing, repairs, vendor coordination, and launch support built to turn ordinary supply into durable STR assets.",
+      "Design, furnishing, repairs, vendor coordination, and launch support that turn ordinary supply into durable STR assets inside your portfolio.",
     icon: Hammer,
   },
   {
     title: "Capital BNB",
     eyebrow: "Portfolio expansion",
     description:
-      "The capital pathway for larger checks: tax-aware strategy, purchase deal flow, and a route toward scaled hospitality ownership.",
+      "Tax-aware strategy and purchase deal flow for investors ready to convert arbitrage cash flow into long-term equity and scaled ownership.",
     icon: Landmark,
   },
 ];
 
 const investorOutcomes = [
-  "Access deal flow without building the sourcing machine yourself",
-  "Participate in an STR business with an operating team already attached",
-  "Move from arbitrage cash flow into ownership opportunities over time",
-  "Use hospitality assets as a serious alternative to another passive allocation",
+  "A real portfolio strategy — arbitrage for scale, purchase for equity and tax savings",
+  "Curated arbitrage and purchase deals matched to your capital, market, and timeline",
+  "A management team already attached so units perform without your daily attention",
+  "One consultative relationship instead of a one-off deal search or generic marketplace",
 ];
 
 const dealRoomRows = [
@@ -91,22 +91,16 @@ const dealRoomRows = [
 
 const pathways = [
   {
-    title: "Capital partner",
+    title: "Investors",
     description:
-      "For investors with meaningful capital who want STR exposure, a clear operator, and a semi-passive entry into the asset class.",
+      "For investors deploying capital who want a real STR portfolio — arbitrage for cash flow and scale, purchase deals for equity, depreciation, and long-term ownership.",
     icon: Wallet,
   },
   {
-    title: "Operator partner",
+    title: "Busy professionals",
     description:
-      "For new or scaling operators who need deal flow, launch support, management infrastructure, or a stronger acquisition pipeline.",
+      "For high earners who want STR income without becoming an operator. We source the deals, launch the units, and manage them so your time stays yours.",
     icon: KeyRound,
-  },
-  {
-    title: "Strategic supply partner",
-    description:
-      "For owners, vendors, and builders who can help STR Forge control more of the short-term rental value chain.",
-    icon: Factory,
   },
 ];
 
@@ -124,7 +118,7 @@ function DealRoomMockup() {
           </div>
           <div>
             <p className="text-sm font-semibold text-foreground">STR Forge Deal Room</p>
-            <p className="text-xs text-muted-foreground">Investor pipeline snapshot</p>
+            <p className="text-xs text-muted-foreground">Arbitrage + purchase deal pipeline</p>
           </div>
         </div>
         <div className="hidden items-center gap-2 rounded-md border border-border bg-background px-3 py-1.5 text-xs text-muted-foreground md:flex">
@@ -179,7 +173,7 @@ function DealRoomMockup() {
               ["Source", "Find underpriced STR supply"],
               ["Operate", "Attach management and launch systems"],
               ["Improve", "Design, furnish, repair, and optimize"],
-              ["Own", "Graduate toward purchase-backed portfolios"],
+              ["Own", "Layer in purchase deals for equity and tax savings"],
             ].map(([label, copy], index) => (
               <motion.div
                 key={label}
@@ -229,7 +223,7 @@ export default function MarketingHome() {
                 className="mx-auto mb-6 max-w-5xl text-4xl font-bold leading-tight text-foreground md:text-5xl lg:text-7xl"
               >
                 STR Forge
-                <span className="block text-foreground">builds Airbnb businesses around real deal flow.</span>
+                <span className="block text-foreground">forges Airbnb portfolios, not one-off deals.</span>
               </motion.h1>
 
               <motion.p
@@ -237,7 +231,7 @@ export default function MarketingHome() {
                 transition={{ duration: 0.7 }}
                 className="mx-auto mb-10 max-w-3xl text-lg font-medium text-foreground/90 md:text-xl"
               >
-                A hybrid platform for investors, operators, and strategic partners who want to start with arbitrage deals, scale through management and buildout, then graduate into purchase-backed STR ownership.
+                A consultative platform for investors and busy professionals. We help you forge a real Airbnb portfolio — arbitrage deals for scale, purchase deals for equity and tax savings — then manage and build the units for you.
               </motion.p>
 
               <motion.div variants={heroFadeUp} transition={{ duration: 0.6 }} className="flex flex-col justify-center gap-4 sm:flex-row">
@@ -307,10 +301,10 @@ export default function MarketingHome() {
         <section id="deal-flow" className="section-spacing bg-secondary/20">
           <div className="section-container grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <motion.div {...sectionFadeUp}>
-              <p className="mb-3 text-sm font-semibold uppercase text-primary">Investor-first positioning</p>
-              <h2 className="mb-5 text-foreground">Built for capital that wants more than another passive fund.</h2>
+              <p className="mb-3 text-sm font-semibold uppercase text-primary">Portfolio, not one-off</p>
+              <h2 className="mb-5 text-foreground">A consultative build, not a deal search.</h2>
               <p className="mb-8 text-text-secondary">
-                The first website version should speak directly to high-capital investors who want income, tax-aware planning conversations, and a semi-passive STR business without assembling the entire machine from scratch.
+                We sit down with investors and busy professionals, map goals, capital, and tax picture, then blend arbitrage and purchase deals into one compounding STR portfolio — and run it end to end.
               </p>
               <Button asChild variant="cta" size="lg" className="group">
                 <Link to="/get-started">
@@ -335,14 +329,14 @@ export default function MarketingHome() {
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
           <div className="section-container">
             <motion.div {...sectionFadeUp} className="mx-auto mb-14 max-w-3xl text-center">
-              <p className="mb-3 text-sm font-semibold uppercase text-primary">Hybrid offer structure</p>
-              <h2 className="mb-4 text-foreground">STR Forge stays the parent platform. Each BNB vertical has a job.</h2>
+              <p className="mb-3 text-sm font-semibold uppercase text-primary">Who we work with</p>
+              <h2 className="mb-4 text-foreground">Built for investors and busy professionals.</h2>
               <p className="text-text-secondary">
-                The brand can flex from deal marketplace to management company to buildout partner while still feeling like one compounding ecosystem.
+                Two audiences, one playbook: forge a portfolio of arbitrage and purchase Airbnbs, and let our team source, launch, and operate every unit.
               </p>
             </motion.div>
 
-            <div className="grid gap-5 md:grid-cols-3">
+            <div className="mx-auto grid max-w-4xl gap-5 md:grid-cols-2">
               {pathways.map((path, index) => (
                 <motion.article
                   key={path.title}
@@ -364,9 +358,9 @@ export default function MarketingHome() {
           <div className="section-container text-center">
             <motion.div {...sectionFadeUp} className="mx-auto max-w-3xl">
               <BadgeDollarSign className="mx-auto mb-5 h-10 w-10 text-primary" />
-              <h2 className="mb-5 text-foreground">Apply to see if your capital, goals, or operating skill fit the current pipeline.</h2>
+              <h2 className="mb-5 text-foreground">Apply to forge your Airbnb portfolio with us.</h2>
               <p className="mb-9 text-text-secondary">
-                STR Forge is prioritizing qualified investors first, while still creating clear paths for operators and strategic partners who strengthen the flywheel.
+                We take on a limited number of investors and busy professionals each quarter so every portfolio gets consultative attention from sourcing through operations.
               </p>
               <Button asChild variant="cta" size="xl" className="group shadow-lg shadow-primary/20">
                 <Link to="/get-started">
