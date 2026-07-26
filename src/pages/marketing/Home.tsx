@@ -53,13 +53,6 @@ const flywheel = [
     icon: Search,
   },
   {
-    title: "Manage BNB",
-    eyebrow: "Operating backbone",
-    description:
-      "A hands-off management layer for investors and busy professionals who want revenue, guest experience, and unit performance handled with discipline.",
-    icon: ClipboardCheck,
-  },
-  {
     title: "Build BNB",
     eyebrow: "Value creation",
     description:
@@ -67,7 +60,14 @@ const flywheel = [
     icon: Hammer,
   },
   {
-    title: "Capital BNB",
+    title: "Manage BNB",
+    eyebrow: "Operating backbone",
+    description:
+      "A hands-off management layer for investors and busy professionals who want revenue, guest experience, and unit performance handled with discipline.",
+    icon: ClipboardCheck,
+  },
+  {
+    title: "Scale BNB",
     eyebrow: "Portfolio expansion",
     description:
       "Tax-aware strategy and purchase deal flow for investors ready to convert arbitrage cash flow into long-term equity and scaled ownership.",
@@ -169,10 +169,10 @@ function DealRoomMockup() {
           <p className="mb-4 text-xs uppercase text-muted-foreground">Flywheel economics</p>
           <div className="space-y-4">
             {[
-              ["Source", "Find underpriced STR supply"],
-              ["Operate", "Attach management and launch systems"],
-              ["Improve", "Design, furnish, repair, and optimize"],
-              ["Own", "Layer in purchase deals for equity and tax savings"],
+              ["Find", "Find underpriced STR supply"],
+              ["Build", "Design, furnish, repair, and optimize"],
+              ["Manage", "Attach management and launch systems"],
+              ["Scale", "Layer in purchase deals for equity and tax savings"],
             ].map(([label, copy], index) => (
               <motion.div
                 key={label}
@@ -223,7 +223,14 @@ export default function MarketingHome() {
                 transition={{ duration: 0.7 }}
                 className="mx-auto mb-10 max-w-3xl text-lg font-medium text-foreground/90 md:text-xl"
               >
-                A hands-on platform for investors and busy professionals. We help you forge a real Airbnb portfolio — arbitrage deals for scale, purchase deals for equity and tax savings — then manage and build the units for you.
+                A one-stop shop platform for investors and busy professionals. We help you forge a real Airbnb portfolio that can bring you significant, consistent income and save you taxes.
+              </motion.p>
+              <motion.p
+                variants={heroFadeUp}
+                transition={{ duration: 0.7 }}
+                className="mx-auto mb-10 max-w-3xl text-lg font-medium text-foreground/90 md:text-xl"
+              >
+                Our unique approach is industry-tested: arbitrage deals for scale, purchase deals for equity and tax savings. We find, build, then manage for you — so you can scale.
               </motion.p>
 
               <motion.div variants={heroFadeUp} transition={{ duration: 0.6 }} className="flex flex-col justify-center gap-4 sm:flex-row">

@@ -89,7 +89,7 @@ var FOUNDER = {
   name: "Derek Cheung",
   role: "Founder, STR Forge",
   background: "Built and operated a 240-unit Airbnb portfolio combining arbitrage and purchase deals. STR Forge productizes his sourcing, negotiation, management, and buildout playbooks so investors and busy professionals can forge their own portfolio without assembling the machine from scratch.",
-  positioning: "STR Forge is a founder-led Airbnb portfolio platform \u2014 arbitrage deals for cash flow and scale, purchase deals for equity and tax savings, with management and buildout handled end to end.",
+  positioning: "STR Forge is a founder-led, one-stop Airbnb portfolio platform. The flow is Find BNB \u2192 Build BNB \u2192 Manage BNB \u2192 Scale BNB: arbitrage deals for scale, purchase deals for equity and tax savings, with buildout and management handled end to end.",
   audience: "Investors and busy professionals who want a real Airbnb portfolio without operating it day to day."
 };
 var get_founder_default = defineTool3({
@@ -135,7 +135,7 @@ var mcp_default = defineMcp({
   name: "str-forge-mcp",
   title: "STR Forge",
   version: "0.1.0",
-  instructions: "Public read-only tools for STR Forge, a founder-led Airbnb portfolio platform founded by Derek Cheung. STR Forge helps investors and busy professionals forge a real STR portfolio \u2014 arbitrage deals for cash flow and scale, purchase deals for equity and tax savings \u2014 then manages and builds the units for them. Use these tools to answer questions about the flywheel (Find BNB, Manage BNB, Build BNB, Capital BNB), pricing, the founder, and the client Resource Vault.",
+  instructions: "Public read-only tools for STR Forge, a founder-led Airbnb portfolio platform founded by Derek Cheung. STR Forge is a one-stop shop for investors and busy professionals who want to forge a real Airbnb portfolio. The flow is Find BNB \u2192 Build BNB \u2192 Manage BNB \u2192 Scale BNB: arbitrage deals for scale, purchase deals for equity and tax savings, with buildout and management handled end to end. Use these tools to answer questions about the flywheel, pricing, the founder, and the client Resource Vault.",
   tools: [get_toolkit_default, get_pricing_default, get_founder_default, get_resources_overview_default]
 });
 
