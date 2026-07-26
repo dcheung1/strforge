@@ -12,7 +12,6 @@ import {
   Factory,
   Hammer,
   Handshake,
-  Home,
   KeyRound,
   Landmark,
   Search,
