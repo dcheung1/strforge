@@ -16,10 +16,10 @@ const fadeUp = {
 };
 
 const flywheel = [
-  { n: "01", title: "Find", copy: "Curated arbitrage and purchase deals screened for demand, cash flow, and clear upside." },
-  { n: "02", title: "Build", copy: "Design, furnishing, and launch — supply turned into durable, guest-ready STR assets." },
-  { n: "03", title: "Manage", copy: "A hands-off operating layer for guests, revenue, and unit performance." },
-  { n: "04", title: "Scale", copy: "Layer in purchase deals for equity, depreciation, and long-term ownership." },
+  { n: "01", title: "Find", copy: "Arbitrage and purchase deals we underwrite ourselves for demand, cash flow, and real upside." },
+  { n: "02", title: "Build", copy: "Design, furnishing, and launch handled by our team so each unit opens ready to perform." },
+  { n: "03", title: "Manage", copy: "A hands-off operating layer running guests, revenue, and unit performance for you." },
+  { n: "04", title: "Scale", copy: "Layer in purchase deals for equity, depreciation, and long-term ownership across the portfolio." },
 ];
 
 const markets = ["Nashville", "Scottsdale", "Tampa", "Austin", "Miami", "Dallas", "Charlotte", "Phoenix"];
@@ -31,9 +31,9 @@ const opportunities = [
 ];
 
 const principles = [
-  { title: "Operated, not outsourced.", copy: "Every unit we source is a unit we can run — the same team owns the outcome." },
-  { title: "Portfolio, not property.", copy: "Arbitrage for scale, purchase for equity. One compounding thesis, not a marketplace." },
-  { title: "Discretion by default.", copy: "A small number of investors and professionals each quarter. Hands-on attention." },
+  { title: "We run what we source.", copy: "Every unit we bring you is a unit our own team can operate. One group owns the outcome." },
+  { title: "Built as a portfolio.", copy: "Arbitrage for scale, purchase for equity and tax savings. One compounding strategy, not a listings feed." },
+  { title: "Quiet by design.", copy: "A small number of investors and busy professionals each quarter, with hands-on attention throughout." },
 ];
 
 export default function HomeAlt() {
@@ -78,7 +78,7 @@ export default function HomeAlt() {
                 <em className="italic text-foreground/90">Airbnb</em> portfolios.
               </h1>
               <p className="mb-10 max-w-xl font-sans text-base text-text-secondary md:text-lg">
-                A one-stop studio for investors and busy professionals. We source, build, and manage a portfolio of arbitrage and purchase Airbnbs — significant, consistent income and tax-advantaged equity, without the operating weight.
+                A one-stop studio for investors and busy professionals. We source, build, and manage a portfolio of arbitrage and purchase Airbnbs that produces significant, consistent income and tax-advantaged equity, without the operating weight.
               </p>
               <div className="flex flex-col gap-4 font-sans sm:flex-row">
                 <Button asChild variant="cta" size="xl" className="group">
@@ -126,10 +126,10 @@ export default function HomeAlt() {
             <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }}>
               <p className="mb-4 font-sans text-xs uppercase tracking-[0.28em] text-primary">The studio</p>
               <h2 className="mb-6 text-4xl leading-[1.05] text-foreground md:text-5xl" style={{ fontFamily: "inherit" }}>
-                A single hands-on relationship, from first deal to full portfolio.
+                One hands-on team, from first deal to full portfolio.
               </h2>
               <p className="mb-6 font-sans text-base text-text-secondary md:text-lg">
-                We sit down with a small number of investors and professionals each quarter. We map goals, capital, and tax picture — then blend arbitrage and purchase deals into one compounding STR portfolio and run it end to end.
+                We work with a small group of investors and busy professionals each quarter. We map your goals, capital, and tax picture, then blend arbitrage and purchase deals into one compounding Airbnb portfolio and run it end to end.
               </p>
               <p className="font-sans text-sm text-muted-foreground">
                 200+ units operated. $15M+ in generated revenue. Eight years inside the asset class.
@@ -174,9 +174,9 @@ export default function HomeAlt() {
           <div className="section-container">
             <motion.div {...fadeUp} className="mb-12 flex flex-col justify-between gap-6 md:mb-16 md:flex-row md:items-end">
               <div className="max-w-xl">
-                <p className="mb-4 font-sans text-xs uppercase tracking-[0.28em] text-primary">Current pipeline</p>
+                <p className="mb-4 font-sans text-xs uppercase tracking-[0.28em] text-primary">On the board</p>
                 <h2 className="text-4xl leading-[1.05] text-foreground md:text-5xl" style={{ fontFamily: "inherit" }}>
-                  Screened opportunities.
+                  Deals we are working now.
                 </h2>
               </div>
               <p className="max-w-sm font-sans text-sm text-text-secondary">
@@ -220,7 +220,7 @@ export default function HomeAlt() {
         <section className="border-t border-border py-20 md:py-28">
           <div className="section-container grid gap-12 lg:grid-cols-[1fr_2fr] lg:gap-20">
             <motion.div {...fadeUp}>
-              <p className="mb-4 font-sans text-xs uppercase tracking-[0.28em] text-primary">Footprint</p>
+              <p className="mb-4 font-sans text-xs uppercase tracking-[0.28em] text-primary">Where we operate</p>
               <h2 className="text-4xl leading-[1.05] text-foreground md:text-5xl" style={{ fontFamily: "inherit" }}>
                 Active markets.
               </h2>
