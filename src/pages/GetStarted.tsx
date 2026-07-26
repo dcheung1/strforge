@@ -28,8 +28,7 @@ const heroStagger = {
 
 const cardVariants = {
   initial: { opacity: 0, y: 40, scale: 0.95 },
-  whileInView: { opacity: 1, y: 0, scale: 1 },
-  viewport: { once: true, margin: "-60px" },
+  animate: { opacity: 1, y: 0, scale: 1 },
 };
 
 const GetStarted = () => {
@@ -166,6 +165,8 @@ const GetStarted = () => {
           <div className="section-container">
             <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-8">
               <motion.div
+                initial="initial"
+                animate="animate"
                 {...cardVariants}
                 transition={{ duration: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
                 className="card-elevated p-6 md:p-8"
@@ -205,6 +206,8 @@ const GetStarted = () => {
               </motion.div>
 
               <motion.div
+                initial="initial"
+                animate="animate"
                 {...cardVariants}
                 transition={{ duration: 0.7, delay: 0.15, ease: [0.25, 0.4, 0.25, 1] }}
                 className="card-elevated p-6 md:p-8"
