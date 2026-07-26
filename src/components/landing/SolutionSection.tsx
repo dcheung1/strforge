@@ -35,7 +35,7 @@ const features = [
     title: "Derek's Playbook, Built In",
     bullets: [
       "AI trained on 240 units of operating experience",
-      "Prescriptive recommendations, not just data",
+      "Prescriptive recommendations backed by real operating data",
       '"Here\'s what I did when Unit #47 had this same issue"',
     ],
   },
