@@ -210,12 +210,6 @@ export default function MarketingHome() {
 
           <motion.div className="section-container relative z-10 text-center">
             <motion.div initial="initial" animate="animate" variants={heroStagger}>
-              <motion.div variants={heroFadeUp} transition={{ duration: 0.6 }} className="mb-6 flex justify-center">
-                <span className="inline-flex items-center gap-2 rounded-md border border-primary/30 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase text-primary">
-                  <Home className="h-3.5 w-3.5" />
-                  Airbnb deal flow, operations, and ownership
-                </span>
-              </motion.div>
 
               <motion.h1
                 variants={heroFadeUp}
