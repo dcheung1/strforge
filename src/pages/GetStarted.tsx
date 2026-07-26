@@ -13,23 +13,19 @@ import {
 } from "@/components/ui/select";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-const heroFadeUp = {
-  initial: { opacity: 0, y: 40 },
-  animate: { opacity: 1, y: 0 },
-};
-
-const heroStagger = {
-  initial: {},
-  animate: { transition: { staggerChildren: 0.2, delayChildren: 0.3 } },
-};
-
 const cardVariants = {
-  initial: { opacity: 0, y: 40, scale: 0.95 },
+  initial: { opacity: 0, y: 30, scale: 0.98 },
   animate: { opacity: 1, y: 0, scale: 1 },
 };
+
+const steps = [
+  { number: "1", label: "Your info" },
+  { number: "2", label: "What you want" },
+  { number: "3", label: "Send it" },
+];
 
 const GetStarted = () => {
   const { toast } = useToast();
@@ -117,8 +113,7 @@ const GetStarted = () => {
       <Header />
 
       <main>
-        {/* ═══════════ Hero ═══════════ */}
-        <section className="relative overflow-hidden pt-24 pb-10 md:pt-32 md:pb-12">
+        <section className="relative overflow-hidden pt-24 pb-8 md:pt-32 md:pb-10">
           <motion.div
             className="absolute inset-0 pointer-events-none"
             initial={{ opacity: 0 }}
@@ -133,134 +128,128 @@ const GetStarted = () => {
           </motion.div>
 
           <div className="section-container relative z-10">
-            <motion.div initial="initial" animate="animate" variants={heroStagger} className="max-w-2xl mx-auto text-center">
-              <motion.div variants={heroFadeUp} transition={{ duration: 0.6 }} className="flex justify-center mb-6">
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-xs font-medium text-primary tracking-wide uppercase">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  Apply to Work With Us
-                </span>
-              </motion.div>
-
-              <motion.h1
-                variants={heroFadeUp}
-                transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-                className="mb-4 text-3xl font-semibold text-foreground md:text-4xl"
-              >
-                Apply to work with STR Forge.
-              </motion.h1>
-
-              <motion.p
-                variants={heroFadeUp}
-                transition={{ duration: 0.7 }}
-                className="font-medium text-foreground/90"
-              >
-                Tell us about your capital, operating background, and goals so we can route you into the right part of the STR Forge flywheel.
-              </motion.p>
-            </motion.div>
+            <div className="max-w-2xl mx-auto text-center">
+              <h1 className="mb-3 text-3xl font-semibold text-foreground md:text-4xl">
+                Apply to work with us.
+              </h1>
+              <p className="text-foreground/80">
+                Tell us what you're building. We'll map the right fit.
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* ═══════════ Form ═══════════ */}
         <section className="pb-20">
           <div className="section-container">
-            <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-8">
-              <motion.div
-                initial="initial"
-                animate="animate"
-                {...cardVariants}
-                transition={{ duration: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
-                className="card-elevated p-6 md:p-8"
-              >
-                <h3 className="text-lg font-semibold text-foreground mb-6">Your Info</h3>
-                <div className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="fullName">Full Name *</Label>
-                      <Input id="fullName" value={formData.fullName} onChange={(e) => handleInputChange("fullName", e.target.value)} placeholder="Derek Cheung" required />
+            <div className="max-w-2xl mx-auto">
+              <div className="flex justify-between items-center mb-8">
+                {steps.map((step) => (
+                  <div key={step.number} className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center text-sm font-semibold text-primary">
+                      {step.number}
                     </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Email *</Label>
-                      <Input id="email" type="email" value={formData.email} onChange={(e) => handleInputChange("email", e.target.value)} placeholder="derek@example.com" required />
+                    <span className="text-sm text-foreground/80 hidden sm:block">{step.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <motion.div
+                  initial="initial"
+                  animate="animate"
+                  variants={cardVariants}
+                  transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
+                  className="card-elevated p-6 md:p-8"
+                >
+                  <h3 className="text-lg font-semibold text-foreground mb-5">Your info</h3>
+                  <div className="space-y-5">
+                    <div className="grid md:grid-cols-2 gap-5">
+                      <div className="space-y-2">
+                        <Label htmlFor="fullName">Full name *</Label>
+                        <Input id="fullName" value={formData.fullName} onChange={(e) => handleInputChange("fullName", e.target.value)} required />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="email">Email *</Label>
+                        <Input id="email" type="email" value={formData.email} onChange={(e) => handleInputChange("email", e.target.value)} required />
+                      </div>
+                    </div>
+                    <div className="grid md:grid-cols-2 gap-5">
+                      <div className="space-y-2">
+                        <Label htmlFor="phone">Phone (optional)</Label>
+                        <Input id="phone" type="tel" value={formData.phone} onChange={(e) => handleInputChange("phone", e.target.value)} />
+                      </div>
+                      <div className="space-y-2">
+                        <Label>Capital to deploy</Label>
+                        <Select value={formData.capital} onValueChange={(v) => handleInputChange("capital", v)}>
+                          <SelectTrigger><SelectValue placeholder="Select range" /></SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="under-100k">Under $100K</SelectItem>
+                            <SelectItem value="100k-250k">$100K-$250K</SelectItem>
+                            <SelectItem value="250k-500k">$250K-$500K</SelectItem>
+                            <SelectItem value="500k-1m">$500K-$1M</SelectItem>
+                            <SelectItem value="1m-plus">$1M+</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
                     </div>
                   </div>
-                  <div className="grid md:grid-cols-2 gap-6">
+                </motion.div>
+
+                <motion.div
+                  initial="initial"
+                  animate="animate"
+                  variants={cardVariants}
+                  transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.4, 0.25, 1] }}
+                  className="card-elevated p-6 md:p-8"
+                >
+                  <h3 className="text-lg font-semibold text-foreground mb-5">What you want</h3>
+                  <div className="space-y-5">
                     <div className="space-y-2">
-                      <Label htmlFor="phone">Phone (optional)</Label>
-                      <Input id="phone" type="tel" value={formData.phone} onChange={(e) => handleInputChange("phone", e.target.value)} placeholder="(555) 123-4567" />
-                    </div>
-                    <div className="space-y-2">
-                      <Label>Available capital or buying power</Label>
-                      <Select value={formData.capital} onValueChange={(v) => handleInputChange("capital", v)}>
-                        <SelectTrigger><SelectValue placeholder="Select range" /></SelectTrigger>
+                      <Label>I'm most interested in</Label>
+                      <Select value={formData.interest} onValueChange={(v) => handleInputChange("interest", v)}>
+                        <SelectTrigger><SelectValue placeholder="Select a pathway" /></SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="under-100k">Under $100K</SelectItem>
-                          <SelectItem value="100k-250k">$100K-$250K</SelectItem>
-                          <SelectItem value="250k-500k">$250K-$500K</SelectItem>
-                          <SelectItem value="500k-1m">$500K-$1M</SelectItem>
-                          <SelectItem value="1m-plus">$1M+</SelectItem>
+                          <SelectItem value="portfolio">Full portfolio (arbitrage + purchase)</SelectItem>
+                          <SelectItem value="arbitrage">Arbitrage deals for cash flow</SelectItem>
+                          <SelectItem value="purchase">Purchase deals for equity and tax savings</SelectItem>
+                          <SelectItem value="management">Management for units I already own</SelectItem>
+                          <SelectItem value="busy-professional">Semi-passive STR income</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
-                  </div>
-                </div>
-              </motion.div>
 
-              <motion.div
-                initial="initial"
-                animate="animate"
-                {...cardVariants}
-                transition={{ duration: 0.7, delay: 0.15, ease: [0.25, 0.4, 0.25, 1] }}
-                className="card-elevated p-6 md:p-8"
-              >
-                <h3 className="text-lg font-semibold text-foreground mb-6">What are you looking for?</h3>
-                <div className="space-y-6">
-                  <div className="space-y-2">
-                    <Label>I'm most interested in:</Label>
-                    <Select value={formData.interest} onValueChange={(v) => handleInputChange("interest", v)}>
-                      <SelectTrigger><SelectValue placeholder="Select a pathway" /></SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="portfolio">Forging a full Airbnb portfolio (arbitrage + purchase)</SelectItem>
-                        <SelectItem value="arbitrage">Arbitrage deals for cash flow and scale</SelectItem>
-                        <SelectItem value="purchase">Purchase deals for equity and tax savings</SelectItem>
-                        <SelectItem value="management">Hands-off management for units I already own</SelectItem>
-                        <SelectItem value="busy-professional">Semi-passive STR income (busy professional)</SelectItem>
-                      </SelectContent>
-                    </Select>
+                    <div className="space-y-2">
+                      <Label htmlFor="currentChallenge">Anything else? (optional)</Label>
+                      <Textarea
+                        id="currentChallenge"
+                        value={formData.currentChallenge}
+                        onChange={(e) => handleInputChange("currentChallenge", e.target.value)}
+                        placeholder="Goals, timeline, experience..."
+                        rows={3}
+                      />
+                    </div>
                   </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="currentChallenge">
-                      What should we know about your goals, capital, timeline, or STR experience? (optional)
-                    </Label>
-                    <Textarea
-                      id="currentChallenge"
-                      value={formData.currentChallenge}
-                      onChange={(e) => handleInputChange("currentChallenge", e.target.value)}
-                      placeholder=""
-                      rows={4}
-                    />
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              >
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} className="inline-block">
-                  <Button type="submit" variant="cta" size="xl" className="group shadow-lg shadow-primary/20">
-                    Submit Application
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
                 </motion.div>
-                <p className="text-sm text-muted-foreground mt-4">
-                  We work with a limited number of investors and busy professionals each quarter so every portfolio gets hands-on attention.
-                </p>
-              </motion.div>
-            </form>
+
+                <motion.div
+                  className="text-center pt-2"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
+                  <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="inline-block">
+                    <Button type="submit" variant="cta" size="xl" className="group shadow-lg shadow-primary/20">
+                      Submit Application
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </motion.div>
+                  <p className="text-sm text-muted-foreground mt-4">
+                    Limited spots each quarter. Every portfolio gets hands-on attention.
+                  </p>
+                </motion.div>
+              </form>
+            </div>
           </div>
         </section>
       </main>
