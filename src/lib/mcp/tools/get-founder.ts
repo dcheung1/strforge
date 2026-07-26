@@ -4,10 +4,10 @@ const FOUNDER = {
   name: "Derek Cheung",
   role: "Founder, STR Forge",
   background:
-    "Built and operated a 240-unit rental arbitrage portfolio. STR Forge productizes the playbooks, negotiation frameworks, and operating systems he used to scale.",
+    "Built and operated a 240-unit Airbnb portfolio combining arbitrage and purchase deals. STR Forge productizes his sourcing, negotiation, management, and buildout playbooks so investors and busy professionals can forge their own portfolio without assembling the machine from scratch.",
   positioning:
-    "STR Forge is Derek Cheung's brain, productized: AI tools for rental arbitrage operators running 1-50 units.",
-  audience: "Rental arbitrage operators managing 1 to 50 units.",
+    "STR Forge is a consultative Airbnb portfolio platform — arbitrage deals for cash flow and scale, purchase deals for equity and tax savings, with management and buildout handled end to end.",
+  audience: "Investors and busy professionals who want a real Airbnb portfolio without operating it day to day.",
 };
 
 export default defineTool({
