@@ -7,6 +7,7 @@ import { lazy, Suspense, useEffect } from "react";
 
 // Lazy-load marketing pages (Aceternity UI — heavier bundle)
 const MarketingHome = lazy(() => import("./pages/marketing/Home"));
+const MarketingHomeAlt = lazy(() => import("./pages/marketing/HomeAlt"));
 
 // Standard pages (shadcn/ui — lighter)
 import Pricing from "./pages/Pricing";
@@ -54,6 +55,14 @@ const App = () => (
             }
           />
           <Route path="/pricing" element={<Pricing />} />
+          <Route
+            path="/home-alt"
+            element={
+              <Suspense fallback={<LoadingSpinner />}>
+                <MarketingHomeAlt />
+              </Suspense>
+            }
+          />
           <Route path="/tools" element={<Tools />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/remote-management" element={<RemoteManagement />} />
