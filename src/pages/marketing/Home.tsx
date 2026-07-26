@@ -223,7 +223,14 @@ export default function MarketingHome() {
                 transition={{ duration: 0.7 }}
                 className="mx-auto mb-10 max-w-3xl text-lg font-medium text-foreground/90 md:text-xl"
               >
-                A hands-on platform for investors and busy professionals. We help you forge a real Airbnb portfolio — arbitrage deals for scale, purchase deals for equity and tax savings — then manage and build the units for you.
+                A one-stop shop platform for investors and busy professionals. We help you forge a real Airbnb portfolio that can bring you significant, consistent income and save you taxes.
+              </motion.p>
+              <motion.p
+                variants={heroFadeUp}
+                transition={{ duration: 0.7 }}
+                className="mx-auto mb-10 max-w-3xl text-lg font-medium text-foreground/90 md:text-xl"
+              >
+                Our unique approach is industry-tested: arbitrage deals for scale, purchase deals for equity and tax savings. We find, build, then manage for you — so you can scale.
               </motion.p>
 
               <motion.div variants={heroFadeUp} transition={{ duration: 0.6 }} className="flex flex-col justify-center gap-4 sm:flex-row">
