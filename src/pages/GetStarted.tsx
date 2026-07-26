@@ -236,7 +236,7 @@ const GetStarted = () => {
                       id="currentChallenge"
                       value={formData.currentChallenge}
                       onChange={(e) => handleInputChange("currentChallenge", e.target.value)}
-                      placeholder="e.g., I want semi-passive STR exposure, I have capital to deploy this quarter, I operate units already, I want tax-aware ownership conversations..."
+                      placeholder=""
                       rows={4}
                     />
                   </div>
