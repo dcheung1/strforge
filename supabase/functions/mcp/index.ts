@@ -40,7 +40,7 @@ var TOOLKIT = [
 var get_toolkit_default = defineTool({
   name: "get_toolkit",
   title: "Get AI toolkit",
-  description: "Return the four AI tools STR Forge offers for rental arbitrage operators (DealForge, The Foundry, The Negotiator, Jarvis) with pricing and descriptions.",
+  description: "Return the four AI tools STR Forge offers to support portfolio owners (DealForge, The Foundry, The Negotiator, Jarvis) with pricing and descriptions.",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => ({
@@ -54,7 +54,7 @@ import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@0.24.0";
 var PRICING = {
   software: {
     name: "Software (DIY)",
-    description: "Self-serve access to STR Forge's AI toolkit for operators who run their own playbook.",
+    description: "Self-serve access to STR Forge's AI toolkit for portfolio owners who want to run pieces themselves.",
     tiers: [
       { name: "DealForge", price: "$29/mo", includes: "Deal analysis Chrome extension + pipeline" },
       { name: "The Foundry", price: "$197 one-time", includes: "AI direct-booking site builder + business setup templates" },
@@ -64,10 +64,10 @@ var PRICING = {
   },
   services: {
     name: "Services (Done-With-You)",
-    description: "Hands-on execution partnership with Derek Cheung's team for operators scaling past 5 units.",
+    description: "Hands-on execution partnership with Derek Cheung's team \u2014 sourcing, management, and buildout across arbitrage and purchase deals.",
     tiers: [
       { name: "Launch Sprint", price: "Contact for quote", includes: "We help you launch your first units end-to-end" },
-      { name: "Scale Partner", price: "Contact for quote", includes: "Ongoing operations support for 10-50 unit portfolios" }
+      { name: "Scale Partner", price: "Contact for quote", includes: "Ongoing consultative operations for 10-50 unit portfolios" }
     ]
   }
 };
