@@ -9,6 +9,6 @@ export default defineMcp({
   title: "STR Forge",
   version: "0.1.0",
   instructions:
-    "Public read-only tools for STR Forge, an AI toolkit for rental arbitrage operators built by Derek Cheung. Use these tools to answer questions about the AI toolkit (DealForge, The Foundry, The Negotiator, Jarvis), pricing tiers, the founder's background, and what lives in the client Resource Vault.",
+    "Public read-only tools for STR Forge, a consultative Airbnb portfolio platform founded by Derek Cheung. STR Forge helps investors and busy professionals forge a real STR portfolio — arbitrage deals for cash flow and scale, purchase deals for equity and tax savings — then manages and builds the units for them. Use these tools to answer questions about the flywheel (Find BNB, Manage BNB, Build BNB, Capital BNB), pricing, the founder, and the client Resource Vault.",
   tools: [getToolkit, getPricing, getFounder, getResourcesOverview],
 });
