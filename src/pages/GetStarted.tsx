@@ -257,7 +257,7 @@ const GetStarted = () => {
                   </Button>
                 </motion.div>
                 <p className="text-sm text-muted-foreground mt-4">
-                  We work with a limited number of investors and busy professionals each quarter so every portfolio gets consultative attention.
+                  We work with a limited number of investors and busy professionals each quarter so every portfolio gets hands-on attention.
                 </p>
               </motion.div>
             </form>
