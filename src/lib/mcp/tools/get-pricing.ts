@@ -3,7 +3,7 @@ import { defineTool } from "@lovable.dev/mcp-js";
 const PRICING = {
   software: {
     name: "Software (DIY)",
-    description: "Self-serve access to STR Forge's AI toolkit for operators who run their own playbook.",
+    description: "Self-serve access to STR Forge's AI toolkit for portfolio owners who want to run pieces themselves.",
     tiers: [
       { name: "DealForge", price: "$29/mo", includes: "Deal analysis Chrome extension + pipeline" },
       { name: "The Foundry", price: "$197 one-time", includes: "AI direct-booking site builder + business setup templates" },
@@ -13,10 +13,10 @@ const PRICING = {
   },
   services: {
     name: "Services (Done-With-You)",
-    description: "Hands-on execution partnership with Derek Cheung's team for operators scaling past 5 units.",
+    description: "Hands-on execution partnership with Derek Cheung's team — sourcing, management, and buildout across arbitrage and purchase deals.",
     tiers: [
       { name: "Launch Sprint", price: "Contact for quote", includes: "We help you launch your first units end-to-end" },
-      { name: "Scale Partner", price: "Contact for quote", includes: "Ongoing operations support for 10-50 unit portfolios" },
+      { name: "Scale Partner", price: "Contact for quote", includes: "Ongoing consultative operations for 10-50 unit portfolios" },
     ],
   },
 };

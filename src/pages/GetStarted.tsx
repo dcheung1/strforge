@@ -219,11 +219,11 @@ const GetStarted = () => {
                     <Select value={formData.interest} onValueChange={(v) => handleInputChange("interest", v)}>
                       <SelectTrigger><SelectValue placeholder="Select a pathway" /></SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="investor">Investing capital into STR opportunities</SelectItem>
-                        <SelectItem value="arbitrage">Buying or operating arbitrage deals</SelectItem>
-                        <SelectItem value="purchase">Purchase-backed Airbnb opportunities</SelectItem>
-                        <SelectItem value="management">Management or buildout support</SelectItem>
-                        <SelectItem value="partner">Strategic partnership</SelectItem>
+                        <SelectItem value="portfolio">Forging a full Airbnb portfolio (arbitrage + purchase)</SelectItem>
+                        <SelectItem value="arbitrage">Arbitrage deals for cash flow and scale</SelectItem>
+                        <SelectItem value="purchase">Purchase deals for equity and tax savings</SelectItem>
+                        <SelectItem value="management">Hands-off management for units I already own</SelectItem>
+                        <SelectItem value="busy-professional">Semi-passive STR income (busy professional)</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -257,7 +257,7 @@ const GetStarted = () => {
                   </Button>
                 </motion.div>
                 <p className="text-sm text-muted-foreground mt-4">
-                  We prioritize qualified investors first, then operators and strategic partners who strengthen the flywheel.
+                  We work with a limited number of investors and busy professionals each quarter so every portfolio gets consultative attention.
                 </p>
               </motion.div>
             </form>

@@ -38,7 +38,7 @@ const Footer = () => {
               to="/remote-management" 
               className="text-sm text-muted-foreground hover:text-foreground transition-colors text-center sm:text-left py-2 sm:py-0"
             >
-              Managed BNB
+              Manage BNB
             </Link>
             <Link 
               to="/resources" 

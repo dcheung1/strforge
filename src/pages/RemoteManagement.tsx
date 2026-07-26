@@ -77,7 +77,7 @@ const RemoteManagement = () => {
               <motion.div variants={heroFadeUp} transition={{ duration: 0.6 }} className="mb-6">
                 <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-xs font-medium text-primary tracking-wide uppercase">
                   <Sparkles className="w-3.5 h-3.5" />
-                  Remote Management
+                  Manage BNB
                 </span>
               </motion.div>
 
@@ -95,9 +95,9 @@ const RemoteManagement = () => {
                 transition={{ duration: 0.7 }}
                 className="text-lg text-text-secondary leading-relaxed"
               >
-                Full remote operations for arbitrage operators who want hands-off income.
+                Full remote operations for investors and busy professionals who want hands-off Airbnb income.
                 Guest communication, multi-platform distribution, review management,
-                and optional vendor coordination.
+                and optional vendor coordination — across every unit in your portfolio.
               </motion.p>
             </motion.div>
           </motion.div>

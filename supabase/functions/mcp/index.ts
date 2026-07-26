@@ -40,7 +40,7 @@ var TOOLKIT = [
 var get_toolkit_default = defineTool({
   name: "get_toolkit",
   title: "Get AI toolkit",
-  description: "Return the four AI tools STR Forge offers for rental arbitrage operators (DealForge, The Foundry, The Negotiator, Jarvis) with pricing and descriptions.",
+  description: "Return the four AI tools STR Forge offers to support portfolio owners (DealForge, The Foundry, The Negotiator, Jarvis) with pricing and descriptions.",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => ({
@@ -54,7 +54,7 @@ import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@0.24.0";
 var PRICING = {
   software: {
     name: "Software (DIY)",
-    description: "Self-serve access to STR Forge's AI toolkit for operators who run their own playbook.",
+    description: "Self-serve access to STR Forge's AI toolkit for portfolio owners who want to run pieces themselves.",
     tiers: [
       { name: "DealForge", price: "$29/mo", includes: "Deal analysis Chrome extension + pipeline" },
       { name: "The Foundry", price: "$197 one-time", includes: "AI direct-booking site builder + business setup templates" },
@@ -64,10 +64,10 @@ var PRICING = {
   },
   services: {
     name: "Services (Done-With-You)",
-    description: "Hands-on execution partnership with Derek Cheung's team for operators scaling past 5 units.",
+    description: "Hands-on execution partnership with Derek Cheung's team \u2014 sourcing, management, and buildout across arbitrage and purchase deals.",
     tiers: [
       { name: "Launch Sprint", price: "Contact for quote", includes: "We help you launch your first units end-to-end" },
-      { name: "Scale Partner", price: "Contact for quote", includes: "Ongoing operations support for 10-50 unit portfolios" }
+      { name: "Scale Partner", price: "Contact for quote", includes: "Ongoing consultative operations for 10-50 unit portfolios" }
     ]
   }
 };
@@ -88,9 +88,9 @@ import { defineTool as defineTool3 } from "npm:@lovable.dev/mcp-js@0.24.0";
 var FOUNDER = {
   name: "Derek Cheung",
   role: "Founder, STR Forge",
-  background: "Built and operated a 240-unit rental arbitrage portfolio. STR Forge productizes the playbooks, negotiation frameworks, and operating systems he used to scale.",
-  positioning: "STR Forge is Derek Cheung's brain, productized: AI tools for rental arbitrage operators running 1-50 units.",
-  audience: "Rental arbitrage operators managing 1 to 50 units."
+  background: "Built and operated a 240-unit Airbnb portfolio combining arbitrage and purchase deals. STR Forge productizes his sourcing, negotiation, management, and buildout playbooks so investors and busy professionals can forge their own portfolio without assembling the machine from scratch.",
+  positioning: "STR Forge is a consultative Airbnb portfolio platform \u2014 arbitrage deals for cash flow and scale, purchase deals for equity and tax savings, with management and buildout handled end to end.",
+  audience: "Investors and busy professionals who want a real Airbnb portfolio without operating it day to day."
 };
 var get_founder_default = defineTool3({
   name: "get_founder_info",
@@ -135,7 +135,7 @@ var mcp_default = defineMcp({
   name: "str-forge-mcp",
   title: "STR Forge",
   version: "0.1.0",
-  instructions: "Public read-only tools for STR Forge, an AI toolkit for rental arbitrage operators built by Derek Cheung. Use these tools to answer questions about the AI toolkit (DealForge, The Foundry, The Negotiator, Jarvis), pricing tiers, the founder's background, and what lives in the client Resource Vault.",
+  instructions: "Public read-only tools for STR Forge, a consultative Airbnb portfolio platform founded by Derek Cheung. STR Forge helps investors and busy professionals forge a real STR portfolio \u2014 arbitrage deals for cash flow and scale, purchase deals for equity and tax savings \u2014 then manages and builds the units for them. Use these tools to answer questions about the flywheel (Find BNB, Manage BNB, Build BNB, Capital BNB), pricing, the founder, and the client Resource Vault.",
   tools: [get_toolkit_default, get_pricing_default, get_founder_default, get_resources_overview_default]
 });
 

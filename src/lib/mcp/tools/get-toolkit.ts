@@ -39,7 +39,7 @@ export default defineTool({
   name: "get_toolkit",
   title: "Get AI toolkit",
   description:
-    "Return the four AI tools STR Forge offers for rental arbitrage operators (DealForge, The Foundry, The Negotiator, Jarvis) with pricing and descriptions.",
+    "Return the four AI tools STR Forge offers to support portfolio owners (DealForge, The Foundry, The Negotiator, Jarvis) with pricing and descriptions.",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => ({
